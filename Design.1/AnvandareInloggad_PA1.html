@@ -5,14 +5,17 @@
 	<head>
 		<title>Boka tid</title>
 		<meta charset="utf-8"/>
-		<link rel="stylesheet" type="text/css" href="CSS_PA1.css" />
-		<link rel="javaScript" type="text/javaScript" href="javascript.js" />
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
 	</head>
 		
 		
-	<body>	
-	<div class="container";>
-		<div class="formular">
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript" src="adminSideScript.js"></script>
+
+		<form>
+			
 			<h2>Veckodag</h2>
 			<select>
 				<option value="Måndag">Måndag</option>
@@ -27,10 +30,13 @@
 			
 			<table id="timeTable";>
 				<tr>
-					<th>Veckodag 1</th>
-					<th>Veckodag 2</th> 
-					<th>Veckodag 3</th>
-					<th>Veckodag 4</th>
+					<th>Måndag</th>
+					<th>Tisdag</th> 
+					<th>Onsdag</th>
+					<th>Torsdag</th>
+					<th>Fredag</th>
+					<th>Lördag</th>
+					<th>Söndag</th>
 				</tr>
 				<tr>
 					<td><input type="radio"; name="tid"; value="Manad1">kl:06:00-08:00</td>
@@ -76,10 +82,11 @@
 				</tr>
 			</table>
 			<br>
-			<input type="button"; value="Boka"; name="boka"; class="button";>
-			<input type="button"; value="AvBoka"; name="avBoka"; class="button";>
-		</div>
-	</div>	
+			<submit value="Boka"; name="boka"; class="button";>
+			<submit value="AvBoka"; name="avBoka"; class="button";>
+
+		</form>
+			
 	</body>
 	
 </html>
