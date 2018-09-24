@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+.formular{
+	margin: auto;
+    width: 60%;
+    padding: 10px;
+	background-color: gray;
+}
+
+/*#timeTable{
+	border-top-width:4px;
+	border-spacing: 2px;
+	font-family:Verdana;
+	font-size: 11px;
+}*/
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+td {
+	padding: 8px 5px 8px 2px;
+}
+
+td:hover {
+	background-color: #ff9999;
+}
+
+input[type=text], [type=password]{
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+p {
+	padding-bottom: 0px;
+}
+/*.button {
+    background-color: pink;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+} */
+
+#loginFalt{
+	border-style: solid;
+	border-color: darkred;
+	padding: 10px 2px 10px 2px;
+	margin-right: 50%;
+}
