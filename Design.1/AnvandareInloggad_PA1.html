@@ -11,10 +11,14 @@
 		
 		
 	<body>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script type="text/javascript" src="adminSideScript.js"></script>
-
+		<!--<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+		<script src="js/jquery-ui-datepicker.min.js"></script>
+		<script type="text/javascript" src="adminSideScript.js"></script>-->
+		  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<p>Date: <input type="date" id="datepicker"></p>
 		<form>
+			
 			
 			<h2>Veckodag</h2>
 			<select>
@@ -27,7 +31,7 @@
 				<option value="Sondag">Söndag</option>
 			</select>
 			<br><br>
-			
+
 			<table id="timeTable";>
 				<tr>
 					<th>Måndag</th>
@@ -39,7 +43,7 @@
 					<th>Söndag</th>
 				</tr>
 				<tr>
-					<td><input type="radio"; name="tid"; value="Manad1">kl:06:00-08:00</td>
+					<td id="td1"><input type="radio"; name="tid"; value="Manad1"><label id="r1k1"></label></td>
 					<td><input type="radio"; name="tid"; value="Manad1">kl:06:00-08:00</td>
 					<td><input type="radio"; name="tid"; value="Manad1">kl:06:00-08:00</td>
 					<td><input type="radio"; name="tid"; value="Manad1">kl:06:00-08:00</td>
@@ -86,7 +90,7 @@
 			<submit value="AvBoka"; name="avBoka"; class="button";>
 
 		</form>
-			
+			<input type="button" value="Logga ut">
 	</body>
 	
 </html>
