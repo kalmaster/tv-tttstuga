@@ -33,19 +33,19 @@ $(document).ready(function() {
 		var date = new Date();
 
 		var day = date.getDate();
-		var month = date.getMonth()+1;
+		var month = date.getMonth();
 		var year = date.getFullYear();
 		alert(day);
 		alert(month);
 		alert(year);
 		var fullDate = new Date();  
-		fullDate.setFullYear(2018,9,28); 
-		document.getElementById("#1").innerHTML = fullDate;
-		/*for(var i = 1; i < 10; i++)
+ 
+		
+		for(var i = 0; i < 21; i++)
 		{
-			fullDate.setFullYear(year,month,(day + i);
-			document.getElementById(i).innerHTML = fullDate;
-		} */
+			fullDate.setFullYear(year, month, (day + i));
+			$("#"+i).text(fullDate);
+		} 
 
 //Kolla om du kan separera det med hjälp av en string...
 
