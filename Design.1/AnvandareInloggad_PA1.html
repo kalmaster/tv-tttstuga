@@ -14,7 +14,6 @@
 		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 		<script src="js/jquery-ui-datepicker.min.js"></script>
 		<script type="text/javascript" src="userSideScript.js"></script>	
-		<form>
 			<br><br>
 
 			<table id="timeTable";>
@@ -74,23 +73,34 @@
 				</tr>
 			</table>
 			<br>
+			
+			<div id="wrapper1">	
+				<div id="tidSelect">
+					<select>
+						<option>06:00-08:00</option>
+						<option>08:00-10:00</option>
+						<option>10:00-12:00</option>
+						<option>12:00-14:00</option>
+						<option>14:00-16:00</option>
+						<option>16:00-18:00</option>
+						<option>18:00-20:00</option>
+						<option>20:00-22:00</option>
+					</select>
+				</div>
 
-			<select>
-				<option>06:00-08:00</option>
-				<option>08:00-10:00</option>
-				<option>10:00-12:00</option>
-				<option>12:00-14:00</option>
-				<option>14:00-16:00</option>
-				<option>16:00-18:00</option>
-				<option>18:00-20:00</option>
-				<option>20:00-22:00</option>
-			</select>
+				<div id="bokaTid">
+					<form>
+						<label>Datum: <label id="bokadDatum"></label></label>
+						<br>
+						<label>Tid: <label id="bokadTid"></label></label>
+						<br><br>
+
+						<input type="submit" name="submit" value="Boka" id="submitButton">
+					</form>
+				</div>
+			</div>
 			<br><br>
-
-			<submit value="Boka"; name="boka"; class="button";>
-			<submit value="AvBoka"; name="avBoka"; class="button";>
-
-		</form>
+			
 			<input type="button" value="Logga ut">
 	</body>
 	

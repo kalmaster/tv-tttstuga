@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	//$("#bokaTid").hide();
+
   /*  $("#calendar").datepicker({
         inline: true,
         firstDay: 1,
@@ -41,17 +43,21 @@ $(document).ready(function() {
     weekday[5] = "Friday";
     weekday[6] = "Saturday";
 
-
+    //WeekDayControl får värdet av dagens veckodag.
     var weekDayControl = weekday[d.getDay()];
     var idStart = 0;
 
     for(var i = 0; i < 7; i++)
     {
+    	//Kollar vilken veckodag vi har
     	if(weekDayControl == weekday[i])
     		 {
+    		 	//idStart gör så att den börjar skriva ut
+    		 	//datumen under rätt veckodag.
     		 	idStart = i;
     		 }
     }
+
 		var date = new Date();
 
 		var day = date.getDate();
@@ -60,17 +66,18 @@ $(document).ready(function() {
 		var fullDate = new Date();  
 		
 		var j = 0;
+
+		//Skriver ut alla datum från idag tills 30 dagar fram åt
 		for(var i = idStart; i < 30; i++)
 		{
+			//Lägger ihop datumet
 			fullDate.setFullYear(year, month, (day + j));
 			var formateradFullDate = fullDate.toISOString();
-			//alert(formateradFullDate);
+			
+			//Lägger in datumen i tabellen
 			$("#"+i).text(formateradFullDate);
 			j++;
 		} 
-
-
-//Kolla om du kan separera det med hjälp av en string...
-
- 
+		
+		 
 });
