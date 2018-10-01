@@ -29,7 +29,29 @@ $(document).ready(function() {
       // date is future
       		alert(date);
         }
-*/
+*/	
+	var d = new Date();
+    var weekday = new Array(7);
+
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+
+    var weekDayControl = weekday[d.getDay()];
+    var idStart = 0;
+
+    for(var i = 0; i < 7; i++)
+    {
+    	if(weekDayControl == weekday[i])
+    		 {
+    		 	idStart = i;
+    		 }
+    }
 		var date = new Date();
 
 		var day = date.getDate();
@@ -37,12 +59,16 @@ $(document).ready(function() {
 		var year = date.getFullYear();
 		var fullDate = new Date();  
 		
-		for(var i = 0; i < 21; i++)
+		var j = 0;
+		for(var i = idStart; i < 30; i++)
 		{
-			fullDate.setFullYear(year, month, (day + i));
+			fullDate.setFullYear(year, month, (day + j));
 			var formateradFullDate = fullDate.toISOString();
+			//alert(formateradFullDate);
 			$("#"+i).text(formateradFullDate);
+			j++;
 		} 
+
 
 //Kolla om du kan separera det med hjälp av en string...
 
