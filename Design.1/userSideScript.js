@@ -35,16 +35,13 @@ $(document).ready(function() {
 		var day = date.getDate();
 		var month = date.getMonth();
 		var year = date.getFullYear();
-		alert(day);
-		alert(month);
-		alert(year);
 		var fullDate = new Date();  
- 
 		
 		for(var i = 0; i < 21; i++)
 		{
 			fullDate.setFullYear(year, month, (day + i));
-			$("#"+i).text(fullDate);
+			var formateradFullDate = fullDate.toISOString();
+			$("#"+i).text(formateradFullDate);
 		} 
 
 //Kolla om du kan separera det med hjälp av en string...
