@@ -65,6 +65,7 @@ $(document).ready(function() {
 		var year = date.getFullYear();
 		var fullDate = new Date();  
 		
+		$("#showYear").html(year);
 		var j = 0;
 
 		//Skriver ut alla datum från idag tills 30 dagar fram åt
@@ -72,12 +73,32 @@ $(document).ready(function() {
 		{
 			//Lägger ihop datumet
 			fullDate.setFullYear(year, month, (day + j));
-			var formateradFullDate = fullDate.toISOString();
+			var formateradFullDate = fullDate.toLocaleDateString();
 			
 			//Lägger in datumen i tabellen
 			$("#"+i).text(formateradFullDate);
 			j++;
 		} 
-		
-		 
+
+		//Lägger till datumet du har bokad i bokningsrutan
+		//när man väljer ett datum.
+		$(".datumTabel").click(function() {
+			//Tar fram id:t på det TD elementen som man trycktes på
+			var id = $(this).attr('id');
+
+			$(".datumTabel").css({"background-color": "gray", })
+			$("#"+id).css({"background-color": "red"})
+
+			//Lägger till datumet du har valt i bokningsrutan
+			var datumString = $("#"+id).html();
+			$("#bokadDatum").html(datumString);
+		});
+
+		//Lägger till tiden du har bokad i bokningsrutan 
+		//när man väljer en tid.
+		$("#tidSelect").change(function() {			
+			 $("#bokadTid").html($("#tidSelect option:checked").text());
+		});
+
+
 });

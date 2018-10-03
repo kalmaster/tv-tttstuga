@@ -7,6 +7,13 @@
 	background-color: gray;
 }
 
+.container{
+	margin: auto;
+    width: 70%;
+    padding: 10px;
+	background-color: gray;
+}	
+
 table, th, td {
     border: 1px solid black;
 }
@@ -16,11 +23,11 @@ table{
 }
 
 th, td {
-	padding: 8px 5px 8px 2px;
-}
+	padding: 2px 2px 2px 2px;
+} 
 
 td:hover {
-	background-color: #ff9999;
+	background-color: lightblue;
 }
 
 input[type=text], [type=password]{
@@ -40,26 +47,36 @@ p {
 	margin-right: 50%;
 }
 
-#tidSelect, #bokaTid{
+#leftSidebar, #calendar{
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
 
 #tidSelect{
-	float: left;
-	border: solid;
-	width: 50%;
-	height: 100px;
+	font-size: 20px;
+	background-color: lightgray;
 }
 
-#bokaTid{
-	float: left;
-	border: solid;
-	width: 50%;
-	height: 100px;
+select{
+	font-size: 20px;
 }
 
-#wrapper1{
+#calendar{
+	float: left;
+	border: solid;
+	width: 80%;
+	padding: 5px 5px 5px 5px;
+}
+
+#leftSidebar{
+	float: left;
+	border: solid;
+	width: 20%;
+	padding: 5px 5px 5px 5px;
+}
+
+#timeTable{
 	width: 100%;
+	text-align: center;
 }
