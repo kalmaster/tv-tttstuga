@@ -16,19 +16,27 @@
 		<script type="text/javascript" src="userSideScript.js"></script>	
 		<div class="container">
 				<div id="leftSidebar">
-					<select id=tidSelect>
-						<option>06:00-08:00</option>
-						<option>08:00-10:00</option>
-						<option>10:00-12:00</option>
-						<option>12:00-14:00</option>
-						<option>14:00-16:00</option>
-						<option>16:00-18:00</option>
-						<option>18:00-20:00</option>
-						<option>20:00-22:00</option>
-					</select>
-					<br><br>
 
-					<form>
+
+					<form action="laddaUppTid.php" method="post">
+						<input id="bokadDatumVar" name="bookedDate" type="HIDDEN"/>
+						<input id="bokadTidVar" name="bookedTime" type="HIDDEN"/>
+						<input name="username" type="HIDDEN"/>
+						
+						<p>Välkommen <label name="username">Kilian</label>!</p>
+
+						<select id=tidSelect>
+							<option>06:00-08:00</option>
+							<option>08:00-10:00</option>
+							<option>10:00-12:00</option>
+							<option>12:00-14:00</option>
+							<option>14:00-16:00</option>
+							<option>16:00-18:00</option>
+							<option>18:00-20:00</option>
+							<option>20:00-22:00</option>
+						</select>
+						<br><br>
+
 						<label>Datum: <label id="bokadDatum"></label></label>
 						<br>
 						<label>Tid: <label id="bokadTid"></label></label>
@@ -39,24 +47,27 @@
 				</div>
 
 				<div id="calendar">
-					<label id="showYear"></label>
-					<div id="monthsDiv">
-						<label class="months">Jan</label>
-						<label class="months">Feb</label>
-						<label class="months">Mar</label>
-						<label class="months">Apr</label>
-						<label class="months">Maj</label>
-						<label class="months">Jun</label>
-						<label class="months">Jul</label>
-						<label class="months">Aug</label>
-						<label class="months">Sep</label>
-						<label class="months">Okt</label>
-						<label class="months">Nov</label>
-						<label class="months">Dec</label>
-					</div>
+					
+					<label id="showMonthNYear"></label>
+
+<!--
+					<ul id="monthsRow">
+						<li class="months">Jan</li>
+						<li class="months">Feb</li>
+						<li class="months">Mar</li>
+						<li class="months">Apr</li>
+						<li class="months">Maj</li>
+						<li class="months">Jun</li>
+						<li class="months">Jul</li>
+						<li class="months">Aug</li>
+						<li class="months">Sep</li>
+						<li class="months">Okt</li>
+						<li class="months">Nov</li>
+						<li class="months">Dec</li>
+					</ul> -->
 
 					<table id="timeTable";>
-					<tr>
+					<tr id="weekDays">
 						<th>Måndag</th>
 						<th>Tisdag</th> 
 						<th>Onsdag</th>

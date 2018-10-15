@@ -11,16 +11,16 @@ if (!isset($_GET['register-user'])) {
 	$lagenhetsnr = $_POST['lagenhetsnr']; 
 	//$picture = $_FILE['picture'];
 
-	$sql = "INSERT INTO users (apartmentnumber, fullname, password)
+	$sql = "INSERT INTO users (apartmentnr, fullname, password)
 	VALUES ($lagenhetsnr, $username, $password)";
 
 	if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "New record created successfully!";
 	} else {
 	    echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 
 	$conn->close();
 } else {
-	echo "in the else";
+	echo "In the else";
 }
