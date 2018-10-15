@@ -79,16 +79,34 @@ select{
 #timeTable{
 	width: 100%;
 	text-align: center;
+	border: none;
+}
+
+tabel, th, td{
+	border: none;
+}
+
+#monthsRow{
+	background-color: lightgray;
 }
 
 .months{
-  float: left;
-  text-align: center;
-  margin-right: 5%;
+	display: inline-block;
+	list-style-type: none;
+  	text-align: center;
+  	padding: 5px 5px 5px 5px;
+ 	width: 6%;
 }
 
-#monthsDiv{
-	padding-top: 50px;
-	padding-bottom: 50px;
-	border: solid;
+#weekDays{
+	background-color: #7287a8;
 }
+
+.datumTabel{
+	background-color: #9ebced;
+}
+
+#showMonthNYear{
+	margin: auto;
+}
+
