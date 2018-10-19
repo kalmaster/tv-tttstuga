@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 try{
@@ -10,18 +9,26 @@ try{
     die("ERROR: Could not connect. " . $e->getMessage());
 }
 
-$bookedTime = $_POST['bookedTimeVar'];
-$bookedDate = $_POST['bookedDateVar'];
+$username = 'KilianJablonka';
+$password = '123';
+
+$passwordDB = password_hash('123',PASSWORD_DEFAULT);
+
 // Attempt insert query execution
 try{
-    $sql = "INSERT INTO reservations (lagenhet, tid, datum) VALUES ('1', '$bookedTime', '$bookedDate')";    
-    $pdo->exec($sql);
+    $sql = "INSERT INTO users (apartmentnr, fullname, password) VALUES ('1', :username, :password)";
+    $stmt = $pdo->prepare($sql);
+    
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $passwordDB);
+
+    $stmt->execute();
+
     echo "Records inserted successfully.";
 } catch(PDOException $e){
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
-
+ 
 // Close connection
 unset($pdo);
-
-include 'anvandareInloggad.html';
+?>

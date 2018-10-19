@@ -90,7 +90,8 @@ $(document).ready(function() {
 			//Lägger till datumet du har valt i bokningsrutan
 			var datumString = $("#"+id).html();
 			$("#bokadDatum").html(datumString);	
-			$("#bokadDatumVar").html(datumString);	
+			$("#bokadDatumVar").val(datumString);
+
 		} 
 
 		else 
@@ -107,7 +108,7 @@ $(document).ready(function() {
 	//när man väljer en tid.
 	$("#tidSelect").change(function() {			
 		 $("#bokadTid").html($("#tidSelect option:checked").text());
-		 $("#bokadTidVar").html($("#tidSelect option:checked").text());
+		 $("#bokadTidVar").val($("#tidSelect option:checked").text());
 	});
 
 
