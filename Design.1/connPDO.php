@@ -1,6 +1,6 @@
-loggin.php
+connPDO.php
 
-<?php 
+<?php
 
 try{
     $pdo = new PDO("mysql:host=localhost;dbname=tvattstugan", "root", "");
@@ -9,4 +9,3 @@ try{
 } catch(PDOException $e){
     die("ERROR: Could not connect. " . $e->getMessage());
 }
-

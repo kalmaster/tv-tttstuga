@@ -1,5 +1,6 @@
-<?php 
+deleteReservation.php
 
+<?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 try{
@@ -9,19 +10,17 @@ try{
 } catch(PDOException $e){
     die("ERROR: Could not connect. " . $e->getMessage());
 }
-
-$bookedTime = $_POST['bookedTimeVar'];
-$bookedDate = $_POST['bookedDateVar'];
-// Attempt insert query execution
+ 
+// Attempt update query execution
 try{
-    $sql = "INSERT INTO reservations (lagenhet, tid, datum) VALUES ('1', '$bookedTime', '$bookedDate')";    
+    $sql = "DELETE FROM reservations WHERE lagenhet='1'";  
     $pdo->exec($sql);
-    echo "Records inserted successfully.";
+    echo "Records were deleted successfully.";
 } catch(PDOException $e){
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
-
+ 
 // Close connection
 unset($pdo);
-
-include 'anvandareInloggad.html';
+?>
+<?php include 'anvandareInloggad.html' ?>

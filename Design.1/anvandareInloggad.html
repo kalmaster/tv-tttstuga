@@ -14,13 +14,17 @@
 		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 		<script src="js/jquery-ui-datepicker.min.js"></script>
 		<script type="text/javascript" src="userSideScript.js"></script>	
+		<?php include 'userStartup.php';?>
+
+
 		<div class="container">
 				<div id="leftSidebar">
 
 
-					<form action="laddaUppTid.php" method="post">
-						<input id="bokadDatumVar" name="bookedDate" type="HIDDEN"/>
-						<input id="bokadTidVar" name="bookedTime" type="HIDDEN"/>
+					<form action="laddaUppTid.php" method="POST">
+						<input id="lagenhetsnr" name="lagenhetsnr" type="HIDDEN"/>
+						<input id="bokadDatumVar" name="bookedDateVar" type="HIDDEN"/>
+						<input id="bokadTidVar" name="bookedTimeVar" type="HIDDEN"/>
 						<input name="username" type="HIDDEN"/>
 						
 						<p>Välkommen <label name="username">Kilian</label>!</p>
@@ -43,6 +47,12 @@
 						<br><br>
 
 						<input type="submit" name="submit" value="Boka" id="submitButton">
+					</form>
+					<br>
+
+					<form action="deleteReservation.php" method="POST">
+						<input name="username" type="HIDDEN"/>
+						<button>Av boka</button>
 					</form>
 				</div>
 
