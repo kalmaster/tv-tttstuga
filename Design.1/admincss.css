@@ -1,5 +1,5 @@
 body {
-    background-color:linen 
+    background-color:aqua;
 }
 
 h1 {
@@ -10,4 +10,11 @@ h1 {
 p {
     font-family: verdana;
     font-size: 20px;
+}
+.contaner {
+	background-color:lime;
+	margin:auto; 
+	width:70%;
+	padding:10px;
+	
 }
