@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+#loginFalt{
+	border-style: solid;
+	border-color: darkred;
+	padding: 10px 2px 10px 2px;
+	margin-right: 50%;
+}

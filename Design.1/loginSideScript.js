@@ -49,6 +49,10 @@
 		}
 
 		$("#userSelect").change(changeLoginH3);
+
+		$("#submitButton").click( function() {
+			$("#submitButton").prop("disabled",true);
+		});
 	});
 
 

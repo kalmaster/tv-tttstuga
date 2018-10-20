@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+table, th, td {
+	border: none;
+	border-spacing: 0px;
+}
+
+th, td {
+	padding: 2px 2px 2px 2px;
+	font-size: 120%;
+} 
+
+td:hover {
+	background-color: lightblue;
+	cursor: pointer;
+}
+
+#leftSidebar{
+	float: left;
+	border: solid;
+	width: 20%;
+	padding: 5px 5px 5px 5px;
+}
+
+#calendar{
+	float: left;
+	border: solid;
+	width: 80%;
+	padding: 5px 5px 5px 5px;
+	background-color: #669999;
+}
+
+#timeTable{
+	width: 100%;
+	text-align: center;
+	border: none;
+}
+
+#leftSidebar, #calendar{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#tidSelect{
+	font-size: 20px;
+	background-color: lightgray;
+}
+
+select{
+	font-size: 20px;
+}
+
+#monthsRow{
+	background-color: lightgray;
+	width: 100%;
+}
+
+.months{
+
+}
+
+#weekDays{
+	background-color: #7287a8;
+}
+
+.datumTabel{
+	background-color: #9ebced;
+}
+
+#showMonthNYear{
+	font-family: cursive;
+	font-size: 200%;
+	font-weight: 900;
+	display: table;
+	margin: 0 auto;
+	padding: 12px 12px;
+}
+

@@ -68,6 +68,8 @@ $(document).ready(function() {
 		j++;
 	} 
 
+
+
 	//Lägger till datumet du har bokad i bokningsrutan
 	//när man väljer ett datum.
 	$(".datumTabel").click(function() {
@@ -97,11 +99,9 @@ $(document).ready(function() {
 		{
 			alert("Det datumet är ej bokbart.");
 		}
-
-
-
-
 	});
+
+
 
 	//Lägger till tiden du har bokad i bokningsrutan 
 	//när man väljer en tid.
