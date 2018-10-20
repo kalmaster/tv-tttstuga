@@ -91,7 +91,6 @@ $(document).ready(function() {
 			var datumString = $("#"+id).html();
 			$("#bokadDatum").html(datumString);	
 			$("#bokadDatumVar").val(datumString);
-
 		} 
 
 		else 

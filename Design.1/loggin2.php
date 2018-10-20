@@ -25,9 +25,6 @@ try{
  
 			$hash=$row['password'];
 			
-			echo password_verify($password,$hash);
-			
-			
 			if (password_verify($password, $hash)) {
                 echo 'Password is valid!';
                 include 'userStartup.php';
