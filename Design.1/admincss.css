@@ -18,3 +18,16 @@ p {
 	padding:10px;
 	
 }
+.button:link, .button:visited {
+    background-color: #6699ff;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.button:hover, .button:active {
+    background-color: #3377ff;
+}
