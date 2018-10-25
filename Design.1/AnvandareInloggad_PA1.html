@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+	
+	<head>
+		<title>Boka tid</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+	</head>
+		
+		
+	<body>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+		<script src="js/jquery-ui-datepicker.min.js"></script>
+		<script type="text/javascript" src="userSideScript.js"></script>	
+		<div class="container">
+				<div id="leftSidebar">
+					<select id=tidSelect>
+						<option>06:00-08:00</option>
+						<option>08:00-10:00</option>
+						<option>10:00-12:00</option>
+						<option>12:00-14:00</option>
+						<option>14:00-16:00</option>
+						<option>16:00-18:00</option>
+						<option>18:00-20:00</option>
+						<option>20:00-22:00</option>
+					</select>
+					<br><br>
+
+					<form>
+						<label>Datum: <label id="bokadDatum"></label></label>
+						<br>
+						<label>Tid: <label id="bokadTid"></label></label>
+						<br><br>
+
+						<input type="submit" name="submit" value="Boka" id="submitButton">
+					</form>
+				</div>
+
+				<div id="calendar">
+					<label id="showYear"></label>
+					<div id="monthsDiv">
+						<label class="months">Jan</label>
+						<label class="months">Feb</label>
+						<label class="months">Mar</label>
+						<label class="months">Apr</label>
+						<label class="months">Maj</label>
+						<label class="months">Jun</label>
+						<label class="months">Jul</label>
+						<label class="months">Aug</label>
+						<label class="months">Sep</label>
+						<label class="months">Okt</label>
+						<label class="months">Nov</label>
+						<label class="months">Dec</label>
+					</div>
+
+					<table id="timeTable";>
+					<tr>
+						<th>Måndag</th>
+						<th>Tisdag</th> 
+						<th>Onsdag</th>
+						<th>Torsdag</th>
+						<th>Fredag</th>
+						<th>Lördag</th>
+						<th>Söndag</th>
+					</tr>
+					<tr>
+						<td class="datumTabel" id="1"></td>
+						<td class="datumTabel" id="2"></td>
+						<td class="datumTabel" id="3"></td>
+						<td class="datumTabel" id="4"></td>
+						<td class="datumTabel" id="5"></td>
+						<td class="datumTabel" id="6"></td>
+						<td class="datumTabel" id="7"></td>
+					</tr>
+					<tr>
+						<td class="datumTabel" id="8"></td>
+						<td class="datumTabel" id="9"></td>
+						<td class="datumTabel" id="10"></td>
+						<td class="datumTabel" id="11"></td>
+						<td class="datumTabel" id="12"></td>
+						<td class="datumTabel" id="13"></td>
+						<td class="datumTabel" id="14"></td>
+					</tr>
+					<tr>
+						<td class="datumTabel" id="15"></td>
+						<td class="datumTabel" id="16"></td>
+						<td class="datumTabel" id="17"></td>
+						<td class="datumTabel" id="18"></td>
+						<td class="datumTabel" id="19"></td>
+						<td class="datumTabel" id="20"></td>
+						<td class="datumTabel" id="21"></td>
+					</tr>
+					<tr>
+						<td class="datumTabel" id="22"></td>
+						<td class="datumTabel" id="23"></td>
+						<td class="datumTabel" id="24"></td>
+						<td class="datumTabel" id="25"></td>
+						<td class="datumTabel" id="26"></td>
+						<td class="datumTabel" id="27"></td>
+						<td class="datumTabel" id="28"></td>
+					</tr>
+					<tr>
+						<td class="datumTabel" id="29"></td>
+						<td class="datumTabel" id="30"></td>
+						<td class="datumTabel" id="31"></td>
+						<td class="datumTabel" id="32"></td>
+						<td class="datumTabel" id="33"></td>
+						<td class="datumTabel" id="34"></td>
+						<td class="datumTabel" id="35"></td>
+					</tr>
+				</table>
+		</div>
+			
+			
+			<input type="button" value="Logga ut">
+		</div>
+	</body>
+	
+</html>
