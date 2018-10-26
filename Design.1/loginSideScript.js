@@ -1,6 +1,7 @@
 	$(document).ready(function() {
 
 		$("#submitButton").prop("disabled",true);
+		$("#logginAs").val("user");
 
 		//Kollar om man lämnar användarnamnfältet körs funktionen
 		$("#usernameBox").focusout(function() {
@@ -41,18 +42,16 @@
 			if($("#userSelect option:checked").text() == "Användare")
 			{
 				$("#usernameLabel").html(user);
+				$("#logginAs").val("user");
 			}
 			else
 			{
 				$("#usernameLabel").html(admin);
+				$("#logginAs").val("admin");
 			}
 		}
 
 		$("#userSelect").change(changeLoginH3);
-
-		$("#submitButton").click( function() {
-			$("#submitButton").prop("disabled",true);
-		});
 	});
 
 

@@ -9,14 +9,14 @@ try{
     die("ERROR: Could not connect. " . $e->getMessage());
 }
 
-$username = 'KilianJablonka';
+$username = 'KilianAdmin';
 $password = '123';
 
 $passwordDB = password_hash('123',PASSWORD_DEFAULT);
 
 // Attempt insert query execution
 try{
-    $sql = "INSERT INTO users (apartmentnr, fullname, password) VALUES ('1', :username, :password)";
+    $sql = "INSERT INTO admin (username, password) VALUES (:username, :password)";
     $stmt = $pdo->prepare($sql);
     
     $stmt->bindParam(':username', $username);

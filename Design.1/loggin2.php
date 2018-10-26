@@ -5,43 +5,77 @@ include_once "connPDO.php";
 
     session_start();
 
-
+    $loggedInAs = $_POST['logginAs'];
 // Attempt select query execution
-    $apartment = $_POST['apartmentnr'];
+    $userOrNr = $_POST['userOrNr'];
     $password = $_POST['password'];
 //  $name = $_POST['first_name'];
-    $_SESSION["loggedApartmentnr"] = $apartment;
+  //  $_SESSION["loggedApartmentnr"] = $apartment;
 
- 
-try{
-    $sql = "SELECT * FROM users WHERE apartmentnr ='".$apartment."'";  
-    $result = $pdo->query($sql);
-    if($result->rowCount() > 0){
+if($loggedInAs == "user"){
+      try{
+        $sql = "SELECT * FROM users WHERE apartmentnr ='".$userOrNr."'";  
+        $result = $pdo->query($sql);
+        if($result->rowCount() > 0){
 
-        while($row = $result->fetch()){
+            while($row = $result->fetch()){
 
-            $row['apartmentnr'];
-            $row['password'];
- 
-			$hash=$row['password'];
-			
-			if (password_verify($password, $hash)) {
-                echo 'Password is valid!';
-                include 'userStartup.php';
-            } else {
-                include "index.html";
-                echo 'Invalid password.';
-            }			
+                $row['apartmentnr'];
+                $row['password'];
+     
+                $hash=$row['password'];
+                
+                if (password_verify($password, $hash)) {
+                    echo 'Password is valid!';
+                    include 'userStartup.php';
+                } else {
+                    include "index.html";
+                    echo 'Invalid password.';
+                }           
+            }
+            // Free result set
+            unset($result);
+        } else{
+            include "index.html";
+            echo "<br> No records matching your query were found.";
         }
-        // Free result set
-        unset($result);
-    } else{
-        include "index.html";
-        echo "<br> No records matching your query were found.";
-    }
-} catch(PDOException $e){
-    die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+    } catch(PDOException $e){
+        die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+    }  
 }
+
+else{
+      try{
+        $sql = "SELECT * FROM admin WHERE username ='".$userOrNr."'";  
+        $result = $pdo->query($sql);
+        if($result->rowCount() > 0){
+
+            while($row = $result->fetch()){
+
+                $row['username'];
+                $row['password'];
+     
+                $hash=$row['password'];
+                
+                if (password_verify($password, $hash)) {
+                    echo 'Password is valid!';
+                    include 'adminInloggad.html';
+                } else {
+                    include "index.html";
+                    echo 'Invalid password.';
+                }           
+            }
+            // Free result set
+            unset($result);
+        } else{
+            include "index.html";
+            echo "<br> No records matching your query were found.";
+        }
+    } catch(PDOException $e){
+        die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+    }  
+}
+
  
 // Close connection
 unset($pdo);
