@@ -62,9 +62,9 @@ $(document).ready(function() {
 		//Lägger ihop datumet
 		fullDate.setFullYear(year, month, (day + j));
 		var formateradFullDate = fullDate.toLocaleDateString();
-		
+		var baraDag = formateradFullDate.substring(8,10);
 		//Lägger in datumen i tabellen
-		$("#"+i).text(formateradFullDate);
+		$("#"+i).text(baraDag);
 		j++;
 	} 
 
@@ -116,7 +116,7 @@ $(document).ready(function() {
 		if($("#"+i).html() == "")
 		{
 			$("#"+i).html("Ej bokbar");	
-			$("#"+i).css({"background-color": "#ce808b"})
+			$("#"+i).css({"background-color": "#ce808b", "filter": "blur(8px)"})
 		}
 	}
 

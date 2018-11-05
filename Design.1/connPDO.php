@@ -1,5 +1,3 @@
-connPDO.php
-
 <?php
 
 try{
