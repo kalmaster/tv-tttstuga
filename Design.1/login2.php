@@ -7,14 +7,14 @@ include_once "connPDO.php";
 
     
 
-    $logedInAs = $_POST['loginAs'];
+    $loginAs = $_POST['loginAs'];
 // Attempt select query execution
     $userOrNr = $_POST['userOrNr'];
     $password = $_POST['password'];
 //  $name = $_POST['first_name'];
   //  $_SESSION["loggedApartmentnr"] = $apartment;
 
-if($loggedInAs == "user"){
+if($loginAs == "user"){
       try{
         $sql = "SELECT * FROM users WHERE apartmentnr ='".$userOrNr."'";  
         $result = $pdo->query($sql);

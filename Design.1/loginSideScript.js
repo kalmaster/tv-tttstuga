@@ -42,12 +42,12 @@
 			if($("#userSelect option:checked").text() == "Användare")
 			{
 				$("#usernameLabel").html(user);
-				$("#logdInAs").val("user");
+				$("#loginAs").val("user");
 			}
 			else
 			{
 				$("#usernameLabel").html(admin);
-				$("#loggInAs").val("admin");
+				$("#loginAs").val("admin");
 			}
 		}
 
