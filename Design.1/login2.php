@@ -3,11 +3,11 @@
 server with default setting (user 'root' with no password) */
 include_once "connPDO.php";
 
-    $_SESSION["loggedInAs"] = $_POST["logginAs"]
+    //$_SESSION["logedInAs"] = $_POST["logedInAs"]
 
     
 
-    $loggedInAs = $_POST['logginAs'];
+    $logedInAs = $_POST['loginAs'];
 // Attempt select query execution
     $userOrNr = $_POST['userOrNr'];
     $password = $_POST['password'];
