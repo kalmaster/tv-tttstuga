@@ -16,12 +16,14 @@
 			
 			<h1 id="loginH3">Logga in som Användare</h1>
 			<div class="formular">
-				<form action="login2.php" method="POST" name="login">		
+				<form action="login2.php" method="POST" name="login">
+					<input type="HIDDEN" name="logedInAs" id="logedInAs">
+
 					<select id="userSelect">
 						<option value="user" >Användare</option>
 						<option value="admin" onclick="changeUser()">Administratör</option>
 					</select>		
-					
+
 					<div id="loginFalt">
 						<label id="usernameLabel">Lägenhetsnummer:</label><br>
 						<input type="text" name="apartmentnr" onfocusout="validerar()" id="usernameBox"><br>
