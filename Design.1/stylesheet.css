@@ -1,5 +1,15 @@
 @charset "utf-8";
 
+:root{
+    --light-theme-color: #CCF5F1;
+    --medium-theme-color: #7ACCC0;
+    --dark-theme-color: #1B685F;
+}
+
+body{
+    background-image: url("table_background2.png");
+}
+
 .formular{
 	margin: auto;
     width: 60%;
@@ -8,8 +18,9 @@
 
 .container{
 	margin: auto;
-    width: 70%;
-    padding: 10px;
+    width: 100%;
+    height: 100%;
+    font-family: cursive;
 }	
 
 
@@ -20,14 +31,17 @@ input[type=text], [type=password]{
 }
 
 p {
-	padding-bottom: 0px;
+	padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 
 
 .button:link, .button:visited {
     background-color: #6699ff;
-    color: white;
-    padding: 14px 25px;
+    color: black;
+    font-family: cursive;
+    width: 18.045112781954887218045112781955%;
+    height: 14.814814814814814814814814815%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -36,6 +50,29 @@ p {
 
 .button:hover, .button:active {
     background-color: #3377ff;
+}
+
+button, button:visited {
+    background-color: #6699ff;
+    color: black;
+    font-family: cursive;
+    width: 18.045112781954887218045112781955%;
+    height: 14.814814814814814814814814815%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+}
+
+
+button:hover {
+    background-color: #3377ff;
+}
+
+.boxHeader{
+    height: 14.814814814814814814814814814815%;
+    background-color: var(--dark-theme-color);
+    font-size: 40pt;
 }
 
 color matcher for design of all sites paletton.com/#uid=13m0u0kfwIh5mXFaHQ+jHyUn-tc

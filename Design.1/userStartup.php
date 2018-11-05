@@ -4,7 +4,7 @@
 server with default setting (user 'root' with no password) */
 include_once "connPDO.php";
 
-
+$rows = ""
 
 include_once "anvandareInloggad.html";
 //echo "<input type="HIDDEN" id="bokadTid"/>";
