@@ -3,7 +3,7 @@
 server with default setting (user 'root' with no password) */
 include_once "connPDO.php";
 
-    $_SESSION["loggedInAs"] = $_POST["loginAs"]
+    $_SESSION["loggedInAs"] = $_POST["logginAs"]
 
     
 
