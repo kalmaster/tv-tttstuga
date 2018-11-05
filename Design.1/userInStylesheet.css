@@ -38,21 +38,11 @@ select{
 }
 
 
-#weekDays{
-	background-color: #7287a8;
-}
-
-.datumTabel{
-	background-color: #9ebced;
-}
-
 #showMonthNYear{
-	font-family: cursive;
 	font-size: 200%;
-	font-weight: 900;
+	font-weight: 600;
 	display: table;
 	margin: 0 auto;
-	padding: 12px 12px;
 }
 
 #leftBox{

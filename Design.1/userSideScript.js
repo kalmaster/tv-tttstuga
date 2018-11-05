@@ -116,7 +116,7 @@ $(document).ready(function() {
 		if($("#"+i).html() == "")
 		{
 			$("#"+i).html("Ej bokbar");	
-			$("#"+i).css({"background-color": "#ce808b", "filter": "blur(8px)"})
+			$("#"+i).css({"background-color": "#ce808b"})
 		}
 	}
 
