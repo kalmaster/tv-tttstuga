@@ -3,20 +3,15 @@
 server with default setting (user 'root' with no password) */
 include_once "connPDO.php";
 
-    $_SESSION["loginAs"] = $_POST["loginAs"];
-    $_SESSION["userOrNr"] = $_POST["userOrNr"];
-    $_SESSION["password"] = $_POST["password"];
+//SESSION variabler...
+$_SESSION["loginAs"] = $_POST["loginAs"];
+$_SESSION["userOrNr"] = $_POST["userOrNr"];
+$_SESSION["password"] = $_POST["password"];
 
-    //$loginAs = $_POST['loginAs'];
-// Attempt select query execution
-//    $userOrNr = $_POST['userOrNr'];
- //   $password = $_POST['password'];
-//  $name = $_POST['first_name'];
-  //  $_SESSION["loggedApartmentnr"] = $apartment;
 
-if($loginAs == "user"){
+if($_SESSION["loginAs"] == "user"){
       try{
-        $sql = "SELECT * FROM users WHERE apartmentnr ='".$userOrNr."'";  
+         $sql = "SELECT * FROM users WHERE apartmentnr ='".$_SESSION["userOrNr"]."'"; 
         $result = $pdo->query($sql);
         if($result->rowCount() > 0){
 
@@ -27,7 +22,7 @@ if($loginAs == "user"){
      
                 $hash=$row['password'];
                 
-                if (password_verify($password, $hash)) {
+                if (password_verify($_SESSION["password"], $hash)) {
                     echo 'Password is valid!';
                     include 'userStartup.php';
                 } else {
@@ -38,7 +33,7 @@ if($loginAs == "user"){
             // Free result set
             unset($result);
         } else{
-            include "index.html";
+            include "index.php";
             echo "<br> No records matching your query were found.";
         }
     } catch(PDOException $e){
@@ -48,29 +43,29 @@ if($loginAs == "user"){
 
 else{
       try{
-        $sql = "SELECT * FROM admin WHERE username ='".$userOrNr."'";  
+        $sql = "SELECT * FROM admin WHERE username ='".$_SESSION["userOrNr"]."'";  
         $result = $pdo->query($sql);
         if($result->rowCount() > 0){
 
             while($row = $result->fetch()){
 
-                $row['username'];
-                $row['password'];
+                $row["username"];
+                $row["password"];
      
-                $hash=$row['password'];
+                $hash=$row["password"];
                 
-                if (password_verify($password, $hash)) {
-                    echo 'Password is valid!';
+                if (password_verify($_SESSION["password"], $hash)) {
+                    echo "Password is valid!";
                     include 'adminInloggad.html';
                 } else {
-                    include "index.html";
-                    echo 'Invalid password.';
+                    include "index.php";
+                    echo "Invalid password.";
                 }           
             }
             // Free result set
             unset($result);
         } else{
-            include "index.html";
+            include "index.php";
             echo "<br> No records matching your query were found.";
         }
     } catch(PDOException $e){

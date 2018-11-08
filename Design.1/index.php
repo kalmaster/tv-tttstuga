@@ -1,5 +1,3 @@
-index.php
-
 <?php
 // Start the session
 session_start();
@@ -13,35 +11,40 @@ session_start();
 		<title>Logga in</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="loginStylesheet.css" />
-		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 	</head>
 		
 	<body>
-		<div class="contaner" id="loggin">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 			<script type="text/javascript" src="loginSideScript.js"></script>
-			
-			<div class="boxHeader" id="Textsak">
-			<p id="loginH3">Logga in som Användare</p>
-			</div>
-			<div class="formular">
-				<form action="login2.php" method="POST" name="login">
-					<input type="HIDDEN" name="loginAs" id="logeinAs">
 
-					<select id="userSelect">
-						<option value="user" >Användare</option>
-						<option value="admin" onclick="changeUser()">Administratör</option>
-					</select>		
+		<div class="container">
+			<div class="mainBox">
+				<div class="boxHeader" id="Textsak">
+					<p id="loginH3">Logga in som Användare</p>
+				</div>
 
-					<div id="loginFalt">
-						<label id="usernameLabel">Lägenhetsnummer:</label><br>
-						<input type="text" name="userOrNr" onfocusout="validerar()" id="userOrNrBox"><br>
-					
-						Lösenord: <br>
-						<input type="password" name="password" onfocusout="validerar()" id="passwordBox"><br>			
-					</div><br>
-					<button type="submit" name="submit" id="submitButton">Logga In</button>
-				</form>
+				<div class="bodyBox">
+					<div class="formBox">
+						<form action="login2.php" method="POST" name="login">
+							<input type="HIDDEN" name="loginAs" id="loginAs" value="user">
+
+							<select id="userSelect" class="select_box">
+								<option value="user" >Användare</option>
+								<option value="admin" onclick="changeUser()">Administratör</option>
+							</select>		
+
+							<div id="loginFalt">
+								<label id="usernameLabel">Lägenhetsnummer:</label><br>
+								<input type="text" name="userOrNr" onfocusout="validerar()" id="userOrNrBox"/><br>
+							
+								Lösenord: <br>
+								<input type="password" name="password" onfocusout="validerar()" id="passwordBox"/><br>			
+							</div><br>
+							<button type="submit" name="submit" id="submitButton">Logga In</button>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 

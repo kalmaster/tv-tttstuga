@@ -1,5 +1,5 @@
 @charset "utf-8";
-
+/*
 #loggin{
 		margin-left: 25%;
 	float: left;
@@ -10,15 +10,13 @@
 	background-color: var(--light-theme-color);
 	font-family: cursive;
 }
-#loginFalt{
-	
-}
+
 #Textsak{
     height: 10%;
     background-color: var(--dark-theme-color);
     font-size: 40pt;
 }
-}
+
 #userSelect{
 	font-size: 20px;
 	background-color: lightgray;
@@ -34,3 +32,5 @@
     display: inline-block;
     border: none;
 }
+*/
+

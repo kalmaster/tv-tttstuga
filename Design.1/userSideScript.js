@@ -54,10 +54,10 @@ $(document).ready(function() {
     var monthNYear = n + " " + year;
     $("#showMonthNYear").html(monthNYear) 
 
-	var j = 0;
-
+	var j = -5;
+ 	var dateArray = Array(36);
 	//Skriver ut alla datum från idag tills 30 dagar fram åt
-	for(var i = idStart; i < 30; i++)
+	for(var i = idStart -5; i < 36; i++)
 	{
 		//Lägger ihop datumet
 		fullDate.setFullYear(year, month, (day + j));
@@ -66,16 +66,34 @@ $(document).ready(function() {
 		//Lägger in datumen i tabellen
 		$("#"+i).text(baraDag);
 		j++;
+
+		dateArray[i] = formateradFullDate;
 	} 
 
 
-
+	var oldId;
 	//Lägger till datumet du har bokad i bokningsrutan
 	//när man väljer ett datum.
 	$(".datumTabel").click(function() {
 		//Tar fram id:t på det TD elementen som man trycktes på
 		var id = $(this).attr('id');
 
+		//Kollar om tatument man valde inte är ett obokbart datum.
+		if(id >= idStart && id <= (idStart + 30))
+		{
+			//Lägger till datumet du har valt i bokningsrutan och en variabel
+			var datumString = $("#"+id).html();
+			$("#bokadDatum").html(datumString);	
+			$("#bokadDatumVar").val(datumString);
+
+			//Ändrar på den bakgrundfärgen gamla valda  knappen   
+			//och bakgrundsfärgeen på den knappen man tryckte på.
+			$("#"+oldId).css({"background-color": "var(--light-theme-color)"});
+			$("#"+id).css({"background-color": "var(--medium-theme-color)"});
+
+			oldId = id;
+		}
+/*
 		if($("#"+id).html() != "Ej bokbar")
 		{
 			$(".datumTabel").css({"background-color": "#9ebced"})
@@ -88,13 +106,8 @@ $(document).ready(function() {
 					$("#"+i).css({"background-color": "#ce808b"})
 				}
 			}	
-
-			//Lägger till datumet du har valt i bokningsrutan
-			var datumString = $("#"+id).html();
-			$("#bokadDatum").html(datumString);	
-			$("#bokadDatumVar").val(datumString);
 		} 
-
+*/
 		else 
 		{
 			alert("Det datumet är ej bokbart.");
@@ -110,15 +123,13 @@ $(document).ready(function() {
 		 $("#bokadTidVar").val($("#tidSelect option:checked").text());
 	});
 
-
 	for(var i = 0; i < 36; i++)
 	{
-		if($("#"+i).html() == "")
+		if(i < idStart || i > (idStart + 30))
 		{
-			$("#"+i).html("Ej bokbar");	
-			$("#"+i).css({"background-color": "#ce808b"})
+			$(".datumTabel").css({"background-color": "var(--light-theme-color)"})
+			$("#"+i).css({"filter": "blur(3px)"})
 		}
 	}
-
 
 });

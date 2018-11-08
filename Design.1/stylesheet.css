@@ -56,8 +56,8 @@ input[type=text], [type=password]{
     background-color: var(--medium-theme-color);
     color: black;
     font-family: cursive;
-    width: 18.045112781954887218045112781955%;
-    height: 14.814814814814814814814814815%;
+    font-size: 15px;
+    padding: 1% 6% 1% 6%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -65,30 +65,48 @@ input[type=text], [type=password]{
 
 
 .button:hover, .button:active {
-    background-color: #3377ff;
+    text-decoration: underline;
 }
 
 button, button:visited {
     background-color: var(--medium-theme-color);
     color: black;
     font-family: cursive;
-    width: 18.045112781954887218045112781955%;
-    height: 14.814814814814814814814814815%;
+    font-size: 15px;
+    padding: 1% 7% 1% 7%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     border: none;
 }
 
-
 button:hover {
-    background-color: #3377ff;
+    text-decoration: underline;
 }
 
+
+select {
+    font-size: 20px;
+    background-color: var(--medium-theme-color);
+}
+
+
 .boxHeader{
+    padding-left: 2%;
     height: 14.814814814814814814814814814815%;
     background-color: var(--dark-theme-color);
-    font-size: 40pt;
+    font-size: 220%;
+}
+
+.mainBox{
+    margin: 0 auto;
+    width: 40%;
+    height: 40%;
+    background-color: var(--light-theme-color);
+}
+
+.bodyBox{
+    padding: 2% 2% 2% 2%;
 }
 
 color matcher for design of all sites paletton.com/#uid=13m0u0kfwIh5mXFaHQ+jHyUn-tc

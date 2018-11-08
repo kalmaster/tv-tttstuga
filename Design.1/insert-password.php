@@ -12,8 +12,8 @@ try{
 $username = '1';
 $password = '123';
 
-//$passwordDB = password_hash('123',PASSWORD_DEFAULT);
-$passwordDB = hash("sha256", $password);
+$passwordDB = password_hash('123',PASSWORD_DEFAULT);
+
 
 // Attempt insert query execution
 try{
