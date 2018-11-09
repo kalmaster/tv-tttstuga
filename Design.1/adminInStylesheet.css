@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+#leftBox{
+    margin-left: 15%;
+    float: left;
+    min-width: 34.63541667%;
+    max-width: 34.63541667%;
+    min-height: 50%;
+    max-height: 50%;
+    background-color: var(--light-theme-color);
+}
+
+#rightBox{
+    float: left;
+    min-width: 34.63541667%;
+    max-width: 34.63541667%;
+    min-height: 50%;
+    max-height: 50%;
+    margin-left: 0.7291666667%;
+    background-color:  var(--light-theme-color);
+}
+
+th, td{
+    width: 25%;
+    border: solid;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+    border: solid;
+}

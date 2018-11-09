@@ -32,7 +32,7 @@ session_start();
 							<select id="userSelect" class="select_box">
 								<option value="user" >Användare</option>
 								<option value="admin" onclick="changeUser()">Administratör</option>
-							</select>		
+							</select>	
 
 							<div id="loginFalt">
 								<label id="usernameLabel">Lägenhetsnummer:</label><br>

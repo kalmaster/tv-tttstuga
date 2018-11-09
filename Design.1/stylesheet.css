@@ -51,7 +51,6 @@ input[type=text], [type=password]{
 	box-sizing: border-box;
 }
 
-
 .button:link, .button:visited {
     background-color: var(--medium-theme-color);
     color: black;
@@ -88,12 +87,12 @@ button:hover {
 select {
     font-size: 20px;
     background-color: var(--medium-theme-color);
+    margin-bottom: 3%;
 }
 
 
 .boxHeader{
     padding-left: 2%;
-    height: 14.814814814814814814814814814815%;
     background-color: var(--dark-theme-color);
     font-size: 220%;
 }
@@ -107,6 +106,12 @@ select {
 
 .bodyBox{
     padding: 2% 2% 2% 2%;
+}
+
+.testContainer{
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
 }
 
 color matcher for design of all sites paletton.com/#uid=13m0u0kfwIh5mXFaHQ+jHyUn-tc
