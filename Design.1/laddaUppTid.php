@@ -2,17 +2,14 @@
 
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-try{
-    $pdo = new PDO("mysql:host=localhost;dbname=tvattstugan", "root", "");
-    // Set the PDO error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e){
-    die("ERROR: Could not connect. " . $e->getMessage());
-}
+include_once "connPDO.php";
 
-$bookedTime = $_POST['bookedTimeVar'];
-$bookedDate = $_POST['bookedDateVar'];
+
+$bookedTime = $_POST["bookedTimeVar"];
+$bookedDate = $_POST["bookedDateVar"];
+ 
 // Attempt insert query execution
+/*
 try{
     $sql = "INSERT INTO reservations (lagenhet, tid, datum) VALUES ('1', '$bookedTime', '$bookedDate')";    
     $pdo->exec($sql);
@@ -20,8 +17,17 @@ try{
 } catch(PDOException $e){
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
+*/
+// Attempt update query execution
+try{
+    $sql = "UPDATE reservations SET tid='".$bookedTime."', datum='".$bookedDate."' WHERE lagenhet='".$_SESSION["userOrNr"]."'";    
+    $pdo->exec($sql);
+  echo "Records were updated successfully.";
+} catch(PDOException $e){
+    die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+}
 
+include "anvandareInloggad.php";
 // Close connection
 unset($pdo);
 
-include 'anvandareInloggad.html';

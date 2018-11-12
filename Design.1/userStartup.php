@@ -4,9 +4,25 @@
 server with default setting (user 'root' with no password) */
 include_once "connPDO.php";
 
-echo $_SESSION["userOrNr"];
+$sql = "SELECT * FROM reservations";
+$result = $pdo->query($sql);
 
-include_once "anvandareInloggad.html";
+if (!$result) {
+    // output data of each row
+    while($row = $result->fetch_row()) {
+        echo "<br> lagenhet: ". $row["lagenhet"]. " - tid: ". $row["tid"]. " " . $row["datum"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+
+$amount = count($result);
+echo $amount;
+//$result[i]
+include_once "anvandareInloggad.php";
+
+
 //echo "<input type="HIDDEN" id="bokadTid"/>";
 /*
 $bookedTime = $_POST['bookedTimeVar'];

@@ -24,9 +24,9 @@ if($_SESSION["loginAs"] == "user"){
                 
                 if (password_verify($_SESSION["password"], $hash)) {
                     echo 'Password is valid!';
-                    include 'userStartup.php';
+                    include_once "userStartup.php";
                 } else {
-                    include "index.html";
+                    include "index.php";
                     echo 'Invalid password.';
                 }           
             }
@@ -56,7 +56,7 @@ else{
                 
                 if (password_verify($_SESSION["password"], $hash)) {
                     echo "Password is valid!";
-                    include 'adminInloggad.html';
+                    include 'adminStartup.php';
                 } else {
                     include "index.php";
                     echo "Invalid password.";

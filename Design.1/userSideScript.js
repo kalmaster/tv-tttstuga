@@ -67,6 +67,7 @@ $(document).ready(function() {
 		$("#"+i).text(baraDag);
 		j++;
 
+		//En array som inehåller alla datum i fårmatet åååå-mm-dd
 		dateArray[i] = formateradFullDate;
 	} 
 
@@ -83,8 +84,8 @@ $(document).ready(function() {
 		{
 			//Lägger till datumet du har valt i bokningsrutan och en variabel
 			var datumString = $("#"+id).html();
-			$("#bokadDatum").html(datumString);	
-			$("#bokadDatumVar").val(datumString);
+			$("#bokadDatum").html(dateArray[id]);	
+			$("#bokadDatumVar").val(dateArray[id]);
 
 			//Ändrar på den bakgrundfärgen gamla valda  knappen   
 			//och bakgrundsfärgeen på den knappen man tryckte på.

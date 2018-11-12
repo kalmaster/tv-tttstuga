@@ -11,7 +11,7 @@ try{
  
 // Attempt update query execution
 try{
-    $sql = "DELETE FROM users WHERE apartmentnr='1'";  
+    $sql = "DELETE FROM users WHERE apartmentnr='2'";  
     $pdo->exec($sql);
     echo "Records were deleted successfully.";
 } catch(PDOException $e){

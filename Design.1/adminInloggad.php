@@ -1,3 +1,6 @@
+<?php
+echo $_SESSION["userOrNr"];
+?>
 <!DOCTYPE html>
 <html lang="sv">
 	<head>
@@ -17,7 +20,7 @@
 						<div class="bodyBox">
 							
 
-							<form action="insert_user.php?register-user" method="POST" name="login">
+							<form action="insert_user_PDO.php" method="POST">
 										
 								<label id="Ny ägare">Namn:</label> <br> 
 
@@ -29,9 +32,12 @@
 								Lösenord:<br> 
 								  
 								<input type="password" name="password" maxlength="16"><br><br>
-										
-								<button type="submit" name="submit" id="Regestrera">Registrera</button>
+								
 								<input type="file" id ="bild" name="picture">
+								<br><br>
+
+								<button type="submit" id="Regestrera">Registrera</button>
+
 							</form>
 							<br>
 							<a href="index.php" class="button">Logga ut</a>

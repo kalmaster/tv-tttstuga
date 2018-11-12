@@ -16,7 +16,6 @@ session_start();
 		
 	<body>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-			<script type="text/javascript" src="loginSideScript.js"></script>
 
 		<div class="container">
 			<div class="mainBox">
@@ -26,7 +25,7 @@ session_start();
 
 				<div class="bodyBox">
 					<div class="formBox">
-						<form action="login2.php" method="POST" name="login">
+				<!--		<form action="login2.php" method="POST" name="login" id="loginForm"> --> 
 							<input type="HIDDEN" name="loginAs" id="loginAs" value="user">
 
 							<select id="userSelect" class="select_box">
@@ -36,18 +35,23 @@ session_start();
 
 							<div id="loginFalt">
 								<label id="usernameLabel">Lägenhetsnummer:</label><br>
-								<input type="text" name="userOrNr" onfocusout="validerar()" id="userOrNrBox"/><br>
+								<input type="text" name="userOrNr" onfocusout="validerar()" id="userOrNr"	/><br>
 							
 								Lösenord: <br>
-								<input type="password" name="password" onfocusout="validerar()" id="passwordBox"/><br>			
+								<input type="password" name="password" onfocusout="validerar()" id="password"/><br>			
 							</div><br>
+
 							<button type="submit" name="submit" id="submitButton">Logga In</button>
-						</form>
+
+							<div id="errorMSG"></div>
+					<!--	</form> --> 
 					</div>
 				</div>
 			</div>
 		</div>
 
+
+		<script type="text/javascript" src="loginSideScript.js"></script>
 	</body>
 	
 	
