@@ -7,19 +7,21 @@ include_once "connPDO.php";
 try{
     $sql = "SELECT * FROM users";   
     $result = $pdo->query($sql);
+    $amountOFRows = $result->rowCount();
+    echo $amountOFRows;
     if($result->rowCount() > 0){
         echo "<table>";
             echo "<tr>";
-                echo "<th>apartmentnr</th>";
-                echo "<th>fullname</th>";
-                echo "<th>password</th>";
-                echo "<th>picture</th>";
+                echo "<th>Lägenhetsnr</th>";
+                echo "<th>Användarnamn</th>";
+                echo "<th>Lösenord</th>";
+                echo "<th>Bild</th>";
             echo "</tr>";
         while($row = $result->fetch()){
             echo "<tr>";
                 echo "<td>" . $row['apartmentnr'] . "</td>";
                 echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . $row['password'] . "</td>";
+                echo "<td>JA</td>";
                 echo "<td>" . $row['picture'] . "</td>";
             echo "</tr>";
         }
@@ -32,7 +34,5 @@ try{
 } catch(PDOException $e){
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
-
-include_once "adminInloggad.php";
 
 unset($pdo);

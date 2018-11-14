@@ -6,7 +6,7 @@ include_once "connPDO.php";
 
 
 //$result[i]
-include_once "anvandareInloggad.php";
+
 
 
 //echo "<input type="HIDDEN" id="bokadTid"/>";

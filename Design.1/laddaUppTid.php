@@ -4,6 +4,7 @@
 server with default setting (user 'root' with no password) */
 include_once "connPDO.php";
 
+echo $_SESSION["userOrNr"];
 
 $bookedTime = $_POST["bookedTimeVar"];
 $bookedDate = $_POST["bookedDateVar"];
@@ -29,5 +30,7 @@ try{
 
 include "anvandareInloggad.php";
 // Close connection
+
+session_start();
 unset($pdo);
 

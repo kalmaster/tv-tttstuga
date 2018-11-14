@@ -7,10 +7,12 @@ echo $_SESSION["userOrNr"];
 		<title>Administration</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="adminInStylesheet.css"/>
-		<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+
 	</head>
 
 	<body>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 		<div class="container">
 				<div id="leftBox">
 						<div class="boxHeader">
@@ -40,7 +42,7 @@ echo $_SESSION["userOrNr"];
 
 							</form>
 							<br>
-							<a href="index.php" class="button">Logga ut</a>
+							<a href="index.php" class="button" onclick="destroy">Logga ut</a>
 
 						</div>
 
@@ -50,22 +52,7 @@ echo $_SESSION["userOrNr"];
 					<div class="boxHeader">
 						<p>Registrerade användare</p>	
 					</div>
-
-					<table>
-						<tr>
-							<th>Lägenhetsnummer</th>
-							<th>Användarnamn</th>
-							<th id="passwordTh">Lössenord</th>
-							<th>Bild</th>
-						</tr>
-
-						<tr>
-							<td>16</td>
-							<td>Kalle</td>
-							<td>8]x}`rE=bCYKD{en#6xG</td>
-							<td></td>
-						</tr>
-					</table>
+					<div id="test"></div>
 				</div>
 			</div>
 			
@@ -74,8 +61,9 @@ echo $_SESSION["userOrNr"];
 		<!--<input type="text" name="Nytt lösenord " onfocusout="validerar()" id="nyttlösenord"><br>
 		<label id="usernameLabel">Nytt Lösenord:</label><br> 
 		-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script type="text/javascript" src="javascript.js"></script>
+		<script type="text/javascript" src="adminSideScript.js"></script>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+	<!--	<script type="text/javascript" src="javascript.js"></script> -->
 	</body>
 	
 </html>

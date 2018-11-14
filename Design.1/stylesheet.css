@@ -32,7 +32,7 @@ time, mark, audio, video {
 }
 
 body{
-    background-image: url("images/cleantexture.jpg");
+    background-image: url("images/cleantexture_user.jpg");
 }
 
 .formular{
@@ -42,7 +42,6 @@ body{
 }
 
 .container{
-	margin: auto;
     width: 100%;
     height: 100%;
     font-family: cursive;
@@ -85,7 +84,7 @@ button, button:visited {
 
 button:hover {
     text-decoration: underline;
-}
+} 
 
 
 select {

@@ -22,11 +22,19 @@
 
 th, td{
     width: 25%;
-    border: solid;
+    border: none;
+    border-spacing: 0px;
+    font-size: 120%;
 }
 
 table{
     width: 100%;
     text-align: center;
-    border: solid;
+    border: none;
+    border-spacing: 0px;
+}
+
+tr:hover {
+    background-color: lightblue;
+    cursor: pointer;
 }
