@@ -17,10 +17,10 @@ if($_SESSION["loginAs"] == "user"){
 
             while($row = $result->fetch()){
 
-                $row['apartmentnr'];
-                $row['password'];
+                $row["apartmentnr"];
+                $row["password"];
      
-                $hash=$row['password'];
+                $hash=$row["password"];
                 
                 if (password_verify($_SESSION["password"], $hash)) {
                     echo 'Password is valid!';

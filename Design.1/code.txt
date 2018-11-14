@@ -1,0 +1,89 @@
+In this text file you find code that might be usefull in the future or code that once was used and might be reused in the future...
+
+
+===========================================================================
+HTML CODE
+===========================================================================
+
+
+
+
+
+
+
+
+
+===========================================================================
+CSS CODE
+===========================================================================
+
+/* Comes from the loginStylesheet.css
+#loggin{
+		margin-left: 25%;
+	float: left;
+	min-width: 50%;
+	max-width: 50%;
+	min-height: 20%;
+	max-height: 40%;
+	background-color: var(--light-theme-color);
+	font-family: cursive;
+}
+
+#Textsak{
+    height: 10%;
+    background-color: var(--dark-theme-color);
+    font-size: 40pt;
+}
+
+#userSelect{
+	font-size: 20px;
+	background-color: lightgray;
+}
+#submitButton{
+    background-color: var(--medium-theme-color);
+    color: black;
+    font-family: cursive;
+    width: 15%;
+    height: 5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+}
+*/
+
+
+
+
+
+
+===========================================================================
+JQUERY OR JAVASCRIPT CODE
+===========================================================================
+
+/* Comes from the userSideScript.js
+
+		if($("#"+id).html() != "Ej bokbar")
+		{
+			$(".datumTabel").css({"background-color": "#9ebced"})
+			$("#"+id).css({"background-color": "red"})
+
+			for(var i = 0; i < 36; i++)
+			{
+				if($("#"+i).html() == "Ej bokbar")
+				{	
+					$("#"+i).css({"background-color": "#ce808b"})
+				}
+			}	
+		} 
+*/
+
+
+
+
+
+
+
+===========================================================================
+PHP CODE
+===========================================================================

@@ -22,13 +22,17 @@ time, mark, audio, video {
 }
 
 :root{
+    /*Main theme colors*/
     --light-theme-color: #CCF5F1;
     --medium-theme-color: #7ACCC0;
     --dark-theme-color: #1B685F;
+
+    /*Special theme colors*/
+    --gray-theme-color: #8fb7b1;
 }
 
 body{
-    background-image: url("table_background2.png");
+    background-image: url("images/cleantexture.jpg");
 }
 
 .formular{

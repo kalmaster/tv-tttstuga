@@ -1,10 +1,12 @@
 	$(document).ready(function() {
 
-
+		//Some starter values are getting set here. 
+		$("#submitButton").prop("disabled", true);
+		$("#submitButton").css({"background-color": "var(--gray-theme-color)"});
 		$("#logginAs").val("user");
 
 
-
+		//This function changes a paragraf an as what you will login.
 		function changeLoginH3() 
 		{
 			var selectedOption = "Logga in som " + $("#userSelect option:checked").text();
@@ -25,97 +27,29 @@
 			}
 		}
 
+
+		//A function that makes  the login button klickebel 
+		//if the userOrNr and password filed are not empty.
+		function validateBoxes(){
+			var userBox = $("#userOrNr").val();
+			var passBox = $("#password").val();
+			if(userBox != "" && passBox != "")
+			{
+				$("#submitButton").prop("disabled", false);
+				$("#submitButton").css({"background-color": "var(--medium-theme-color)"});
+			}
+			else
+			{
+				$("#submitButton").prop("disabled", true);
+				$("#submitButton").css({"background-color": "var(--gray-theme-color)"});
+			}
+		}
+
+
+		//All interactiv actions are here
 		$("#userSelect").change(changeLoginH3);
-
-
-
-
-		$("#userOrNr").keyup(function(){
-
-			var nameBox = $("#userOrNr").val();
-			var passBox = $("#password").val();
-
-			if(nameBox != "" && passBox != "")
-			{
-				$("#submitButton").prop("disabled",false);
-			}
-			else
-			{
-				//Här ska felmedelande i placeholder vara.
-			}
-		});
-
-		$("#password").keyup(function(){
-
-			var nameBox = $("#userOrNr").val();
-			var passBox = $("#password").val();
-
-			if(nameBox != "" && passBox != "")
-			{
-				$("#submitButton").prop("disabled",false);
-			}
-			else
-			{
-				//Här ska felmedelande i placeholder vara.
-			}
-		});
-
-
-
-		$("#submitButton").click(function(){
-
-			var loginAs = $("#loginAs").val();
-			var userOrNr = $("#userOrNr").val();
-			var password = $("#password").val();
-
-			var dataString = "loginAs1" + loginAs + "&userOrNr1=" + userOrNr + "&password1=" + password;
-
-			if(userOrNr == "" || password == "")
-			{
-				$("#errorMSG").html("Fyll i alla fält!");
-			}
-			else
-			{
-				$.ajax({
-					type:"POST", 
-					url: "login2.php",
-					data: dataString,
-					cache: false,
-					success: function(result){}
-				});
-			}
-
-		});
-
-
-
-		//Kollar om man lämnar användarnamnfältet körs funktionen
-/*		$("#usernameBox").focusout(function() {
-
-			//Kollar om något står i båda inmatningsfälten och om det
-			// gör det så gör den 
-			if($("#usernameBox").val() != "" && $("#passwordBox").val() != "")
-			{
-				$("#submitButton").prop("disabled",false);
-			}
-			else
-			{
-				$("#submitButton").prop("disabled",true);
-			}
-		}); */
-/*
-		$("#passwordBox").focusout(function() {
-
-			if($("#usernameBox").val() != "" && $("#passwordBox").val() != "")
-			{
-				$("#submitButton").prop("disabled",false);
-			}
-			else
-			{
-				$("#submitButton").prop("disabled",true);
-			}
-
-		}); */
+		$("#userOrNr").keyup(validateBoxes);
+		$("#password").keyup(validateBoxes);
 
 
 	});

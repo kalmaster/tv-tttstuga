@@ -4,21 +4,7 @@
 server with default setting (user 'root' with no password) */
 include_once "connPDO.php";
 
-$sql = "SELECT * FROM reservations";
-$result = $pdo->query($sql);
 
-if (!$result) {
-    // output data of each row
-    while($row = $result->fetch_row()) {
-        echo "<br> lagenhet: ". $row["lagenhet"]. " - tid: ". $row["tid"]. " " . $row["datum"] . "<br>";
-    }
-} else {
-    echo "0 results";
-}
-
-
-$amount = count($result);
-echo $amount;
 //$result[i]
 include_once "anvandareInloggad.php";
 

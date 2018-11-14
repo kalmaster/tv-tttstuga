@@ -94,21 +94,7 @@ $(document).ready(function() {
 
 			oldId = id;
 		}
-/*
-		if($("#"+id).html() != "Ej bokbar")
-		{
-			$(".datumTabel").css({"background-color": "#9ebced"})
-			$("#"+id).css({"background-color": "red"})
 
-			for(var i = 0; i < 36; i++)
-			{
-				if($("#"+i).html() == "Ej bokbar")
-				{	
-					$("#"+i).css({"background-color": "#ce808b"})
-				}
-			}	
-		} 
-*/
 		else 
 		{
 			alert("Det datumet är ej bokbart.");
