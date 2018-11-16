@@ -24,7 +24,7 @@ if($_SESSION["loginAs"] == "user"){
                 
                 if (password_verify($_SESSION["password"], $hash)) {
                     echo 'Password is valid!';
-                    include_once "anvandareInloggad.php";
+                    include_once "userStartup.php";
                 } else {
                     include_once "index.php";
                     echo 'Invalid password.';
@@ -43,7 +43,7 @@ if($_SESSION["loginAs"] == "user"){
 
 else{
       try{
-        $sql = "SELECT * FROM admin WHERE username ='".$_SESSION["userOrNr"]."'";  
+        $sql = "SELECT * FROM admins WHERE username ='".$_SESSION["userOrNr"]."'";  
         $result = $pdo->query($sql);
         if($result->rowCount() > 0){
 

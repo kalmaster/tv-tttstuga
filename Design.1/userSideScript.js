@@ -1,5 +1,9 @@
 $(document).ready(function() {
-	
+
+	$("#resTest").click(function(){
+		alert("It works!");
+		alert(reservations[0]);
+	});
 	var d = new Date();
     var weekday = new Array(7);
 
@@ -51,8 +55,7 @@ $(document).ready(function() {
 	var fullDate = new Date();  
 
     //Sätter ihop texten som sitter över kalendern.
-    var monthNYear = n + " " + year;
-    $("#showMonthNYear").html(monthNYear) 
+    $("#showMonthNYear").html(n) 
 
 	var j = -5;
  	var dateArray = Array(36);

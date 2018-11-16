@@ -11,7 +11,7 @@ $passwordDB = password_hash($password,PASSWORD_DEFAULT);
 
 // Attempt insert query execution
 try{
-    $sql = "INSERT INTO users (apartmentnr, fullname, password, picture) VALUES (:apartmentnr, :username, :password, 'Nice picture')";
+    $sql = "INSERT INTO users (apartmentnr, fullname, password, picture) VALUES (:apartmentnr, :username, :password, 'NEJ')";
     $stmt = $pdo->prepare($sql);
     
     $stmt->bindParam(':apartmentnr', $apartmentnr);
@@ -26,7 +26,7 @@ try{
 }
 
 try{
-    $sql = "INSERT INTO reservations (apartmentnr, bookedTime, bookedDate) VALUES ('$apartmentnr', '00:00-00:00', '0000-00-00')";    
+    $sql = "INSERT INTO reservationstest2 (apartmentnr, reservation) VALUES ('$apartmentnr', '00:00-00:00/0000-00-00')";    
     $pdo->exec($sql);
     echo "Records inserted successfully.";
     include_once "adminInloggad.php";
@@ -37,4 +37,5 @@ try{
 
 // Close connection
 unset($pdo);
+
 

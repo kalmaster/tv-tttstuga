@@ -54,8 +54,8 @@
 						<button type="submit" formaction="deleteReservation.php" id="avbokaKnapp">Avboka</button>
 
 						<a class="button" href="index.php">Logga ut</a>
-
 					</form>
+					<button id="resTest">Click me</button>
 				</div>
 
 

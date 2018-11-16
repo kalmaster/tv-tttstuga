@@ -6,8 +6,6 @@ echo $_SESSION["userOrNr"];
 	<head>
 		<title>Administration</title>
 		<meta charset="utf-8"/>
-		<link rel="stylesheet" type="text/css" href="adminInStylesheet.css"/>
-
 	</head>
 
 	<body>
@@ -33,7 +31,7 @@ echo $_SESSION["userOrNr"];
 								
 								Lösenord:<br> 
 								  
-								<input type="password" name="password" maxlength="16"><br><br>
+								<input type="password" name="password" maxlength="30"><br><br>
 								
 								<input type="file" id ="bild" name="picture">
 								<br><br>
@@ -42,7 +40,7 @@ echo $_SESSION["userOrNr"];
 
 							</form>
 							<br>
-							<a href="index.php" class="button" onclick="destroy">Logga ut</a>
+							<a href="index.php" class="button" onclick="destroy()">Logga ut</a>
 
 						</div>
 
@@ -63,6 +61,7 @@ echo $_SESSION["userOrNr"];
 		-->
 		<script type="text/javascript" src="adminSideScript.js"></script>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+		<link rel="stylesheet" type="text/css" href="adminInStylesheet.css"/>
 	<!--	<script type="text/javascript" src="javascript.js"></script> -->
 	</body>
 	

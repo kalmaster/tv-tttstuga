@@ -109,7 +109,7 @@ select {
 
 .bodyBox{
     padding: 2% 2% 2% 2%;
-}
+    overflow: auto;
 
 .testContainer{
     width: 90%;
