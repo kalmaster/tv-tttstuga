@@ -25,8 +25,10 @@ try{
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
 
+$reservationNull = "u" .$apartmentnr. "/t 00:00-00:00/d0000-00-00";
+
 try{
-    $sql = "INSERT INTO reservations (apartmentnr, bookedTime, bookedDate) VALUES ('$apartmentnr', '00:00-00:00', '0000-00-00')";    
+    $sql = "INSERT INTO reservations1 (apartmentnr, reservation) VALUES ('$apartmentnr', '$reservationNull')";    
     $pdo->exec($sql);
     echo "Records inserted successfully.";
     include_once "adminInloggad.php";

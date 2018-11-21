@@ -1,40 +1,27 @@
 <?php 
 
-include_once "connPDO.php";
+include "connPDO.php";
 
 
 // Attempt select query execution
 try{
-    $sql = "SELECT * FROM reservations";   
+    $sql = "SELECT * FROM reservations1";   
     $result = $pdo->query($sql);
     
     $amountOFRows = $result->rowCount();
-    
+    echo $amountOFRows;
 
     //Creating the javascript array...
-    echo $amountOFRows;
-/*
-    echo "<script>";
-    echo "var reservations = new Array(" .$amountOFRows. ")";
-
-    for($i = 0; $i < $amountOFRows; $i++)
-    {
-        echo "reservations[" .$i. "] = ";
-    }
-
-    echo "</script>";*/
-
-
-
-
     if($result->rowCount() > 0){
         echo "<script>";
-            echo "var reservations = new Array(" .$amountOFRows. ");    ";
-        
+            echo "var userLoggedIn = \""  .$_SESSION["userOrNr"]. "\";";
+            echo "var reservations = new Array(" .$amountOFRows. ");";
+        $i = 0;
+
         while($row = $result->fetch()){
-            $i = 0;
-            echo "reservations[.$i.] = \" " .$row["apartmentnr"]. "\" ;";
-            $i++;
+
+            echo "reservations[$i] = \"" .$row["reservation"]. "\" ;";
+            $i += 1;
         }
         echo "</script>";
         // Free result set

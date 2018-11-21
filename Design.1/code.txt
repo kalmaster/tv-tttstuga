@@ -79,9 +79,19 @@ JQUERY OR JAVASCRIPT CODE
 */
 
 
+		var p = reservations.search("|");
+		var apartmentnr = reservations[i].substring(0,p);
 
 
 
+
+
+/*
+	$("bookingButton").click(function() {
+		$.post("userStartup.php", function(data, status) {
+			$("head").html(data);
+		});
+	}); */
 
 
 ===========================================================================

@@ -1,6 +1,3 @@
-<?php
-echo $_SESSION["userOrNr"];
-?>
 <!DOCTYPE html>
 <html lang="sv">
 	<head>

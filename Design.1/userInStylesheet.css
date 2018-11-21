@@ -29,11 +29,11 @@ td:hover {
 }
 
 
-#showMonthNYear{
+#showMonth{
 	font-size: 200%;
 	font-weight: 600;
 	display: table;
-	margin: 0 auto;
+	margin: 2.5% auto;
 }
 
 #leftBox{

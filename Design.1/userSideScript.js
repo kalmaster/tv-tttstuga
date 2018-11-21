@@ -1,9 +1,37 @@
 $(document).ready(function() {
 
-	$("#resTest").click(function(){
-		alert("It works!");
-		alert(reservations[0]);
-	});
+
+	// Gets all the values out of the array and finds out
+	// if you have booked a time. The seperates the string in the
+	// array and places the values in two labels. 
+	var reservationsLength = reservations.length;
+	//alert(reservationsLength);
+	for(var i = 0; i < reservationsLength; i++)
+	{
+		// Seaching for the user which has booked the time "i".
+		var subStringEnd = reservations[i].search("/");
+		var whichUser = reservations[i].substring(1, subStringEnd);
+
+
+		if(whichUser == userLoggedIn)
+		{	
+			//Searches for the time and the datye in the string from the array.
+			var timePosition = reservations[i].search("t");
+			var datePosition = reservations[i].search("d");
+
+			// Seperates the string so you can use the booked
+			// time and date seperatly. 
+			var time = reservations[i].substring((timePosition + 1), (timePosition + 12));
+			var date = reservations[i].substring((datePosition + 1), (datePosition + 11)); 	
+
+			//Inserts the time and the date into a label. 
+			$("#bookedDate").html(" " + date);
+			$("#bookedTime").html(" / " + time);	
+		} 
+		//alert("Im in the loop!");
+	} 
+
+
 	var d = new Date();
     var weekday = new Array(7);
 
@@ -32,17 +60,18 @@ $(document).ready(function() {
     var d = new Date();
     var n = month[d.getMonth()];
 
-    //WeekDayControl får värdet av dagens veckodag.
+    //WeekDayControl week day gets set to todays weekday.
     var weekDayControl = weekday[d.getDay()];
     var idStart = 0;
 
     for(var i = 0; i < 7; i++)
     {
-    	//Kollar vilken veckodag vi har
+    	//Looks which weekday it is
     	if(weekDayControl == weekday[i])
     		 {
-    		 	//idStart gör så att den börjar skriva ut
-    		 	//datumen under rätt veckodag.
+
+    		 	// idStart is a variable used to start writting todays 
+    		 	// date under the right weekday in the calendar on the userpage. 
     		 	idStart = i;
     		 }
     }
@@ -54,23 +83,28 @@ $(document).ready(function() {
 	var year = date.getFullYear();
 	var fullDate = new Date();  
 
-    //Sätter ihop texten som sitter över kalendern.
-    $("#showMonthNYear").html(n) 
+    //Insert the year at the top of the calendar.
+    $("#showMonth").html(n) 
 
 	var j = -5;
  	var dateArray = Array(36);
-	//Skriver ut alla datum från idag tills 30 dagar fram åt
+
+	//Inserts all the dates from the start of this week and four weeks on.
 	for(var i = idStart -5; i < 36; i++)
 	{
-		//Lägger ihop datumet
+		//Combinds the differend parts of the date to one string
 		fullDate.setFullYear(year, month, (day + j));
 		var formateradFullDate = fullDate.toLocaleDateString();
+
+		//Seperates the day from the rest in the date string
 		var baraDag = formateradFullDate.substring(8,10);
-		//Lägger in datumen i tabellen
+
+		//Inserts just the number of the day in the calendar.
 		$("#"+i).text(baraDag);
 		j++;
 
-		//En array som inehåller alla datum i fårmatet åååå-mm-dd
+		// Inserts all the dates from the start of this week and four
+		// weeks on in a array, in the format yyyy-mm-dd
 		dateArray[i] = formateradFullDate;
 	} 
 
@@ -87,7 +121,7 @@ $(document).ready(function() {
 		{
 			//Lägger till datumet du har valt i bokningsrutan och en variabel
 			var datumString = $("#"+id).html();
-			$("#bokadDatum").html(dateArray[id]);	
+			$("#bookedDate").html(dateArray[id]);	
 			$("#bokadDatumVar").val(dateArray[id]);
 
 			//Ändrar på den bakgrundfärgen gamla valda  knappen   
@@ -109,7 +143,7 @@ $(document).ready(function() {
 	//Lägger till tiden du har bokad i bokningsrutan 
 	//när man väljer en tid.
 	$("#tidSelect").change(function() {			
-		 $("#bokadTid").html($("#tidSelect option:checked").text());
+		 $("#bookedTime").html($("#tidSelect option:checked").text());
 		 $("#bokadTidVar").val($("#tidSelect option:checked").text());
 	});
 
@@ -117,9 +151,31 @@ $(document).ready(function() {
 	{
 		if(i < idStart || i > (idStart + 30))
 		{
-			$(".datumTabel").css({"background-color": "var(--light-theme-color)"})
-			$("#"+i).css({"filter": "blur(3px)"})
+			$(".datumTabel").css({"background-color": "var(--light-theme-color)"});
+			$("#"+i).css({"filter": "blur(3px)"});
 		}
 	}
+
+
+
+	$("#bookingBTN").click(function() {
+		var bookedTime = $("#bookedTime").html();
+		var bookedDate = $("#bookedDate").html();
+		
+		var reservation = "u" + userLoggedIn + "/t" + bookedTime + "/d" + bookedDate;
+
+		$.post("reservingTime.php", 
+			{ reservation: reservation }, 
+			function(data, status) {
+				$("#messageBox").html(data);
+			}); 
+	});
+
+
+	$("#cancelBTN").click(function() {
+		$.get("deleteReservation.php", function(data) {
+			$("#messageBox").html(data);
+		})		
+	});
 
 });

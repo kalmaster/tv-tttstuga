@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 
 <html lang="sv">
@@ -13,8 +11,7 @@
 		
 		
 	<body>
-		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-		<script src="js/jquery-ui-datepicker.min.js"></script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>	
 		<script type="text/javascript" src="userSideScript.js"></script>
 
 		<div class="container">
@@ -24,7 +21,7 @@
 						<p>Välkommen <label name="username">Kilian</label>!</p>
 					</div>
 
-					<form action="laddaUppTid.php" method="POST">
+			<!--		<form action="laddaUppTid.php" method="POST"> -->
 						<input id="lagenhetsnr" name="lagenhetsnr" type="HIDDEN"/>
 						<input id="bokadDatumVar" name="bookedDateVar" type="HIDDEN"/>
 						<input id="bokadTidVar" name="bookedTimeVar" type="HIDDEN"/>
@@ -44,17 +41,21 @@
 						</select>
 						<br><br>
 
-						<label>Datum: <label id="bokadDatum"></label></label>
-						<br>
-						<label>Tid: <label id="bokadTid"></label></label>
+						<label>Datum och tid: 
+							<label id="bookedDate"></label>
+							<label> / </label>
+							<label id="bookedTime"></label>
+						</label>
 						<br><br>
 
-						<button type="submit" id="bokaKnapp">Boka</button>
+						<div id="messageBox"></div>
 
-						<button type="submit" formaction="deleteReservation.php" id="avbokaKnapp">Avboka</button>
+						<button type="submit" id="bookingBTN">Boka</button/>
+	<!--				</form>  -->
 
-						<a class="button" href="index.php">Logga ut</a>
-					</form>
+					<button type="submit" id="cancelBTN">Avboka</button>
+
+					<a class="button" href="index.php">Logga ut</a>					
 					<button id="resTest">Click me</button>
 				</div>
 
@@ -65,7 +66,7 @@
 						<p>2018</p>
 					</div>
 
-						<label id="showMonthNYear"></label>
+						<label id="showMonth"></label>
 
 						<table id="timeTable";>
 							<tr id="weekDays">
