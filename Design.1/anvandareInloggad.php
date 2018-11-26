@@ -21,7 +21,7 @@
 						<p>Välkommen <label name="username">Kilian</label>!</p>
 					</div>
 
-			<!--		<form action="laddaUppTid.php" method="POST"> -->
+				<!--	<form action="reservingTime.php" method="POST"> -->
 						<input id="lagenhetsnr" name="lagenhetsnr" type="HIDDEN"/>
 						<input id="bokadDatumVar" name="bookedDateVar" type="HIDDEN"/>
 						<input id="bokadTidVar" name="bookedTimeVar" type="HIDDEN"/>
@@ -30,20 +30,20 @@
 
 
 						<select id=tidSelect>
-							<option>06:00-08:00</option>
-							<option>08:00-10:00</option>
-							<option>10:00-12:00</option>
-							<option>12:00-14:00</option>
-							<option>14:00-16:00</option>
-							<option>16:00-18:00</option>
-							<option>18:00-20:00</option>
-							<option>20:00-22:00</option>
+							<option>Välj en tid</option>
+							<option id="time0">06:00-08:00</option>
+							<option id="time1">08:00-10:00</option>
+							<option id="time2">10:00-12:00</option>
+							<option id="time3">12:00-14:00</option>
+							<option id="time4">14:00-16:00</option>
+							<option id="time5">16:00-18:00</option>
+							<option id="time6">18:00-20:00</option>
+							<option id="time7">20:00-22:00</option>
 						</select>
 						<br><br>
 
-						<label>Datum och tid: 
+						<label id="dateNTime" >Datum och tid: 
 							<label id="bookedDate"></label>
-							<label> / </label>
 							<label id="bookedTime"></label>
 						</label>
 						<br><br>
@@ -51,12 +51,12 @@
 						<div id="messageBox"></div>
 
 						<button type="submit" id="bookingBTN">Boka</button/>
-	<!--				</form>  -->
 
-					<button type="submit" id="cancelBTN">Avboka</button>
+						<button type="submit" id="cancelBTN">Avboka</button>
 
-					<a class="button" href="index.php">Logga ut</a>					
-					<button id="resTest">Click me</button>
+						<a class="button" href="index.php">Logga ut</a>
+				<!--	</form>  -->
+				<!--	<button id="resTest">Click me</button> -->	
 				</div>
 
 

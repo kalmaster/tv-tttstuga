@@ -94,6 +94,54 @@ JQUERY OR JAVASCRIPT CODE
 	}); */
 
 
+
+
+	$("#bookingBTN").click(function() {
+
+		var bookedTime = $("#tidSelect option:checked").text();
+		var bookedDate = $("#bookedDate").html();
+
+		if(bookedDate != " 0000-00-00" && bookedTime != " / 00:00-00:00")
+		{			
+			var reservation = "u" + userLoggedIn + "/t" + bookedTime + "/d" + bookedDate;
+			$.post("reservingTime.php", 
+				{ reservation: reservation }, 
+				function(data, status) {
+					$("#messageBox").html(data);
+				})
+		}
+
+		//Error messages
+		else if(bookedDate == " 0000-00-00" && bookedTime != " / 00:00-00:00")
+		{
+			$("#messageBox").html("Du har inte valt datumet som tiden ska bokas!")
+		}
+		else if(bookedDate != " 0000-00-00" && bookedTime == " / 00:00-00:00")
+		{
+			$("#messageBox").html("Du har inte valt tiden som ska bokas!");	
+		}
+		else
+		{
+			$("#messageBox").html("Du har inte valt datum och tid som ska bokas!");
+		}
+	});
+
+
+	$("#cancelBTN").click(function() {
+		if(date != "0000-00-00" && time != "00:00-00:00")
+		{
+			$.get("deleteReservation.php", function(data) {
+				$("#messageBox").html(data);
+			})			
+		}
+		else
+		{
+			$("#messageBox").html("Du har inte bokat en tid som kan avbokas, libtard, DX!");
+		}
+		
+	});
+
+
 ===========================================================================
 PHP CODE
 ===========================================================================

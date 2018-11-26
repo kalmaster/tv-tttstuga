@@ -2,7 +2,7 @@
 
 include "connPDO.php";
 
-/*
+
 // Attempt select query execution
 try{
     $sql = "SELECT * FROM reservations1";   
@@ -39,10 +39,5 @@ try{
 } catch(PDOException $e){
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
-*/
-include_once "getReservations.php";
-
-include_once "anvandareInloggad.php";
-
 // Close connection
 unset($pdo);

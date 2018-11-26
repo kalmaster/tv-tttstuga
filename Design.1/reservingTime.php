@@ -3,10 +3,11 @@
 server with default setting (user 'root' with no password) */
 include_once "connPDO.php";
 
+/*
+$time = $_POST["bookedTimeVar"];
+$date = $_POST["bookedDateVar"];
 
-$reservation = $_POST["reservation"];
-
-
+$reservation = "u" .$_SESSION["userOrNr"]. "" */ 
 // Attempt update query execution 
 /*
 try{
@@ -17,6 +18,9 @@ try{
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }*/
 
+
+$reservation = $_POST["reservation"];
+
 try{
     $sql = "UPDATE reservations1 SET reservation='".$reservation."' WHERE apartmentnr='".$_SESSION["userOrNr"]."'";    
     $pdo->exec($sql);
@@ -25,6 +29,7 @@ try{
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
 
+include "getReservations.php";
 // Close connection
 unset($pdo);
 

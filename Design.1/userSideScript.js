@@ -1,36 +1,38 @@
 $(document).ready(function() {
 
-
-	// Gets all the values out of the array and finds out
-	// if you have booked a time. The seperates the string in the
-	// array and places the values in two labels. 
-	var reservationsLength = reservations.length;
-	//alert(reservationsLength);
-	for(var i = 0; i < reservationsLength; i++)
+	function reservationArray()
 	{
-		// Seaching for the user which has booked the time "i".
-		var subStringEnd = reservations[i].search("/");
-		var whichUser = reservations[i].substring(1, subStringEnd);
+		// Gets all the values out of the array and finds out
+		// if you have booked a time. The seperates the string in the
+		// array and places the values in two labels. 
+		var reservationsLength = reservations.length;
+		//alert(reservationsLength);
+		for(var i = 0; i < reservationsLength; i++)
+		{
+			// Seaching for the user which has booked the time "i".
+			var subStringEnd = reservations[i].search("/");
+			var whichUser = reservations[i].substring(1, subStringEnd);
 
 
-		if(whichUser == userLoggedIn)
-		{	
-			//Searches for the time and the datye in the string from the array.
-			var timePosition = reservations[i].search("t");
-			var datePosition = reservations[i].search("d");
+			if(whichUser == userLoggedIn)
+			{	
+				//Searches for the time and the datye in the string from the array.
+				var timePosition = reservations[i].search("/t");
+				var datePosition = reservations[i].search("/d");
 
-			// Seperates the string so you can use the booked
-			// time and date seperatly. 
-			var time = reservations[i].substring((timePosition + 1), (timePosition + 12));
-			var date = reservations[i].substring((datePosition + 1), (datePosition + 11)); 	
+				// Seperates the string so you can use the booked
+				// time and date seperatly.
+				var time = reservations[i].substring((timePosition + 2), (timePosition + 13));
+				var date = reservations[i].substring((datePosition + 2), (datePosition + 12)); 	
 
-			//Inserts the time and the date into a label. 
-			$("#bookedDate").html(" " + date);
-			$("#bookedTime").html(" / " + time);	
-		} 
-		//alert("Im in the loop!");
-	} 
-
+				//Inserts the time and the date into a label. 
+				$("#bookedDate").html(" " + date);
+				$("#bookedTime").html(" / " + time);	
+			} 
+		}		
+	}
+ 
+ 	reservationArray();
 
 	var d = new Date();
     var weekday = new Array(7);
@@ -109,10 +111,14 @@ $(document).ready(function() {
 	} 
 
 
+
+
 	var oldId;
 	//Lägger till datumet du har bokad i bokningsrutan
 	//när man väljer ett datum.
 	$(".datumTabel").click(function() {
+		$("option").prop("disabled", false);
+
 		//Tar fram id:t på det TD elementen som man trycktes på
 		var id = $(this).attr('id');
 
@@ -130,6 +136,43 @@ $(document).ready(function() {
 			$("#"+id).css({"background-color": "var(--medium-theme-color)"});
 
 			oldId = id;
+
+			var reservationsLength2 = reservations.length;
+
+			for(var i = 0; i < reservationsLength2; i++)
+			{
+				//Searches for the time and the datye in the string from the array.
+				var timePosition = reservations[i].search("/t");
+				var datePosition = reservations[i].search("/d");
+				
+				// Seperates the string so you can use the booked
+				// time and date seperatly.
+				var time = reservations[i].substring((timePosition + 2), (timePosition + 13));
+				var date = reservations[i].substring((datePosition + 2), (datePosition + 12)); 	
+				
+				if(dateArray[id] == date)
+				{
+					if(time != "00:00-00:00")
+						{
+					//		alert("It works 1!");
+							var selectAmount = document.getElementById("tidSelect").length -1;
+					//		var selectAmount = $("#tidSelect option").length();
+					//		alert("The variable is set!");
+							for(var i = 0; i < selectAmount; i++)
+							{	
+							//	alert("It works 2!");
+								var timeToChange = $("#time" + i).text();
+								alert("."+timeToChange+".");
+								alert("booked" + "."+time+".")
+								if(timeToChange == time)
+								{	
+									alert("It works!");
+									$("#time" + i).prop("disabled", true);
+								}
+							}
+						}	
+				}
+			}
 		}
 
 		else 
@@ -140,11 +183,41 @@ $(document).ready(function() {
 
 
 
+
 	//Lägger till tiden du har bokad i bokningsrutan 
 	//när man väljer en tid.
-	$("#tidSelect").change(function() {			
-		 $("#bookedTime").html($("#tidSelect option:checked").text());
-		 $("#bokadTidVar").val($("#tidSelect option:checked").text());
+	$("#tidSelect").change(function() {
+		$(".datumTabel").css({"text-decoration": "none", "pointer-events": "auto"});
+
+		$("#bookedTime").html("/ " + $("#tidSelect option:checked").text());
+		$("#bokadTidVar").val($("#tidSelect option:checked").text());
+
+		var dateArrayLength = dateArray.length;
+		var reservationsLength3 = reservations.length;
+
+		for(var i = 0; i < reservationsLength3; i++)
+		{
+			//Searches for the time and the datye in the string from the array.
+			var timePosition = reservations[i].search("/t");
+			var datePosition = reservations[i].search("/d");
+			
+			// Seperates the string so you can use the booked
+			// time and date seperatly.
+			var time = reservations[i].substring((timePosition + 2), (timePosition + 13));
+			var date = reservations[i].substring((datePosition + 2), (datePosition + 12)); 
+			alert(date);
+			for(var i = 0; i < dateArrayLength; i++)
+			{
+									alert($("#tidSelect option:checked").text());
+
+				if (dateArray[i] == date && $("#tidSelect option:checked").text() == time)
+				{
+					alert("Im in!");
+					$("#"+i).css({"text-decoration": "line-through", "pointer-events": "none"});
+				}
+			}
+		}
+		 
 	});
 
 	for(var i = 0; i < 36; i++)
@@ -158,24 +231,61 @@ $(document).ready(function() {
 
 
 
-	$("#bookingBTN").click(function() {
-		var bookedTime = $("#bookedTime").html();
-		var bookedDate = $("#bookedDate").html();
-		
-		var reservation = "u" + userLoggedIn + "/t" + bookedTime + "/d" + bookedDate;
 
-		$.post("reservingTime.php", 
-			{ reservation: reservation }, 
-			function(data, status) {
-				$("#messageBox").html(data);
-			}); 
+	$("#bookingBTN").click(function() {
+
+		var bookedTime = $("#tidSelect option:checked").text();
+		var bookedDate = $("#bookedDate").html();
+		alert("." + bookedDate + ".");
+		alert("." + bookedTime + ".");
+
+		if(bookedDate != " 0000-00-00" && bookedTime != "Välj en tid")
+		{			
+			var reservation = "u" + userLoggedIn + "/t" + bookedTime + "/d" + bookedDate;
+			$.post("reservingTime.php", 
+				{ reservation: reservation }, 
+				function(data, status) {
+					$("#messageBox").html(data);
+				})
+
+			reservationArray();
+		}
+
+		//Error messages
+		else if(bookedDate == " 0000-00-00" && bookedTime != "Välj en tid")
+		{
+			$("#messageBox").html("Du har inte valt datumet som tiden ska bokas!")
+		}
+		else if(bookedDate != " 0000-00-00" && bookedTime == "Välj en tid")
+		{
+			$("#messageBox").html("Du har inte valt tiden som ska bokas!");	
+		}
+		else
+		{
+			$("#messageBox").html("Du har inte valt datum och tid som ska bokas!");
+		}
 	});
 
 
+
+
 	$("#cancelBTN").click(function() {
-		$.get("deleteReservation.php", function(data) {
-			$("#messageBox").html(data);
-		})		
+		var bookedTime = $("#tidSelect option:checked").text();
+		var bookedDate = $("#bookedDate").html();
+
+		if(bookedDate != " 0000-00-00" && bookedTime != "Välj en tid")
+		{	
+			$.get("deleteReservation.php", function(data) {
+				$("#messageBox").html(data);
+			});	
+
+			reservationArray();		
+		}
+		else
+		{
+			$("#messageBox").html("Du har inte bokat en tid som kan avbokas!");
+		}
+		
 	});
 
 });

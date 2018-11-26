@@ -4,7 +4,7 @@ server with default setting (user 'root' with no password) */
 include_once "connPDO.php";
 
 
-$reservation = "u/" .$_SESSION["userOrNr"]. "/t00:00-00:00/d0000-00-00";
+$reservation = "u".$_SESSION["userOrNr"]. "/t00:00-00:00/d0000-00-00";
 
 try{
     $sql = "UPDATE reservations1 SET reservation='".$reservation."' WHERE apartmentnr='".$_SESSION["userOrNr"]."'";    
@@ -24,7 +24,7 @@ try{
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 } */
  
+include_once "getReservations.php";
+
 // Close connection
 unset($pdo);
-
-include "userStartup.php";
