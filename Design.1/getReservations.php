@@ -15,7 +15,7 @@ try{
     if($result->rowCount() > 0){
 
         // Starts to echo a javascript script.
-        echo "<script>";
+        echo "<script id=\"reservationScript\">";
 
             // Creates a table for the reservations and a 
             // vraible for the logged in user.

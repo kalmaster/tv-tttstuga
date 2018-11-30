@@ -2,12 +2,14 @@
 
 include_once "connPDO.php";
 
-$apartmentnr = $_POST["lagenhetsnr"];
 $username = $_POST["username"];
+$apartmentnr = $_POST["apartmentnr"];
 $password = $_POST["password"];
 
 $passwordDB = password_hash($password,PASSWORD_DEFAULT);
 
+$userSet = false;
+$reservationSet = false;
 
 // Attempt insert query execution
 try{
@@ -20,7 +22,7 @@ try{
 
     $stmt->execute();
 
-    echo "Records inserted successfully.";
+    $userSet = true;
 } catch(PDOException $e){
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
@@ -28,13 +30,16 @@ try{
 try{
     $sql = "INSERT INTO reservationstest2 (apartmentnr, reservation) VALUES ('$apartmentnr', '00:00-00:00/0000-00-00')";    
     $pdo->exec($sql);
-    echo "Records inserted successfully.";
-    include_once "adminInloggad.php";
+
+    $reservationSet = true;
 } catch(PDOException $e){
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
  
-
+if($userSet == true && $reservationSet == true)
+{
+    include_once "adminStartup.php";
+}
 // Close connection
 unset($pdo);
 

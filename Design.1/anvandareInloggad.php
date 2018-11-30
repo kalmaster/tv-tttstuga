@@ -68,7 +68,7 @@
 
 						<label id="showMonth"></label>
 
-						<table id="timeTable";>
+						<table id="timeTable">
 							<tr id="weekDays">
 								<th>Mån</th>
 								<th>Tis</th> 

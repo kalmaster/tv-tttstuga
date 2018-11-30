@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+	var isTimeSet = false;
+	var isDateSet = false;
+
+	var cancelTimeSet = false;
+	var cancelDateSet = false;
+
 	function reservationArray()
 	{
 		// Gets all the values out of the array and finds out
@@ -27,7 +33,18 @@ $(document).ready(function() {
 
 				//Inserts the time and the date into a label. 
 				$("#bookedDate").html(" " + date);
-				$("#bookedTime").html(" / " + time);	
+				$("#bookedTime").html(" / " + time);
+
+				if(date == "0000-00-00" && time == "00:00-00:00")
+				{
+					cancelTimeSet = false;
+					cancelDateSet = false;
+				}
+				else
+				{
+					cancelTimeSet = true;
+					cancelDateSet = true;
+				}
 			} 
 		}		
 	}
@@ -111,13 +128,28 @@ $(document).ready(function() {
 	} 
 
 
+	for(var i = 0; i < 36; i++)
+	{
+		if(i < idStart || i > (idStart + 30))
+		{
+			$(".datumTabel").css({"background-color": "var(--light-theme-color)"});
+			$("#"+i).css({"filter": "blur(3px)"});
+		}
+	}
 
+
+
+	
 
 	var oldId;
+	var oldSelectedTime;
 	//Lägger till datumet du har bokad i bokningsrutan
 	//när man väljer ett datum.
 	$(".datumTabel").click(function() {
 		$("option").prop("disabled", false);
+		var oldSelectedTime = selectedTime;
+		isDateSet = true;
+		cancelDateSet = true;
 
 		//Tar fram id:t på det TD elementen som man trycktes på
 		var id = $(this).attr('id');
@@ -125,6 +157,11 @@ $(document).ready(function() {
 		//Kollar om tatument man valde inte är ett obokbart datum.
 		if(id >= idStart && id <= (idStart + 30))
 		{
+			if(oldSelectedTime != selectedTime)
+			{
+				$(".datumTabel").css({"text-decoration": "none", "pointer-events": "auto"});	
+			}
+
 			//Lägger till datumet du har valt i bokningsrutan och en variabel
 			var datumString = $("#"+id).html();
 			$("#bookedDate").html(dateArray[id]);	
@@ -141,36 +178,40 @@ $(document).ready(function() {
 
 			for(var i = 0; i < reservationsLength2; i++)
 			{
-				//Searches for the time and the datye in the string from the array.
-				var timePosition = reservations[i].search("/t");
-				var datePosition = reservations[i].search("/d");
-				
-				// Seperates the string so you can use the booked
-				// time and date seperatly.
-				var time = reservations[i].substring((timePosition + 2), (timePosition + 13));
-				var date = reservations[i].substring((datePosition + 2), (datePosition + 12)); 	
-				
-				if(dateArray[id] == date)
+
+				// Seaching for the user which has booked the time "i".
+				var subStringEnd = reservations[i].search("/");
+				var whichUser = reservations[i].substring(1, subStringEnd);
+
+				if(whichUser != userLoggedIn)
 				{
-					if(time != "00:00-00:00")
+
+					//Searches for the time and the datye in the string from the array.
+					var timePosition = reservations[i].search("/t");
+					var datePosition = reservations[i].search("/d");
+					
+					// Seperates the string so you can use the booked
+					// time and date seperatly.
+					var time = reservations[i].substring((timePosition + 2), (timePosition + 13));
+					var date = reservations[i].substring((datePosition + 2), (datePosition + 12)); 	
+					
+					if(dateArray[id] == date)
+					{	
+						if(time != "00:00-00:00")
 						{
-					//		alert("It works 1!");
 							var selectAmount = document.getElementById("tidSelect").length -1;
-					//		var selectAmount = $("#tidSelect option").length();
-					//		alert("The variable is set!");
+
 							for(var i = 0; i < selectAmount; i++)
 							{	
-							//	alert("It works 2!");
 								var timeToChange = $("#time" + i).text();
-								alert("."+timeToChange+".");
-								alert("booked" + "."+time+".")
+
 								if(timeToChange == time)
 								{	
-									alert("It works!");
 									$("#time" + i).prop("disabled", true);
 								}
 							}
 						}	
+					}
 				}
 			}
 		}
@@ -183,65 +224,78 @@ $(document).ready(function() {
 
 
 
-
+	var selectedTime;
 	//Lägger till tiden du har bokad i bokningsrutan 
 	//när man väljer en tid.
 	$("#tidSelect").change(function() {
 		$(".datumTabel").css({"text-decoration": "none", "pointer-events": "auto"});
 
-		$("#bookedTime").html("/ " + $("#tidSelect option:checked").text());
-		$("#bokadTidVar").val($("#tidSelect option:checked").text());
 
-		var dateArrayLength = dateArray.length;
-		var reservationsLength3 = reservations.length;
+		if($("#tidSelect option:checked").text() != "Välj en tid")
+		{	
+			isTimeSet = true;
+			cancelTimeSet = true;
 
-		for(var i = 0; i < reservationsLength3; i++)
-		{
-			//Searches for the time and the datye in the string from the array.
-			var timePosition = reservations[i].search("/t");
-			var datePosition = reservations[i].search("/d");
-			
-			// Seperates the string so you can use the booked
-			// time and date seperatly.
-			var time = reservations[i].substring((timePosition + 2), (timePosition + 13));
-			var date = reservations[i].substring((datePosition + 2), (datePosition + 12)); 
-			alert(date);
-			for(var i = 0; i < dateArrayLength; i++)
+			selectedTime = $("#tidSelect option:checked").text();
+
+			$("#bookedTime").html("/ " + $("#tidSelect option:checked").text());
+			$("#bokadTidVar").val($("#tidSelect option:checked").text());
+
+			var dateArrayLength = dateArray.length;
+			var reservationsLength3 = reservations.length;
+
+			for(var i = 0; i < reservationsLength3; i++)
 			{
-									alert($("#tidSelect option:checked").text());
+				// Seaching for the user which has booked the time "i".
+				var subStringEnd = reservations[i].search("/");
+				var whichUser = reservations[i].substring(1, subStringEnd);
 
-				if (dateArray[i] == date && $("#tidSelect option:checked").text() == time)
+				if(whichUser != userLoggedIn)
 				{
-					alert("Im in!");
-					$("#"+i).css({"text-decoration": "line-through", "pointer-events": "none"});
+					//Searches for the time and the datye in the string from the array.
+					var timePosition = reservations[i].search("/t");
+					var datePosition = reservations[i].search("/d");
+
+					// Seperates the string so you can use the booked
+					// time and date seperatly.
+					var time = reservations[i].substring((timePosition + 2), (timePosition + 13));
+					var date = reservations[i].substring((datePosition + 2), (datePosition + 12)); 
+					
+					for(var j = 0; j < dateArrayLength; j++)
+					{	
+						if (dateArray[j] == date && $("#tidSelect option:checked").text() == time)
+						{
+							$("#"+j).css({"text-decoration": "line-through", "pointer-events": "none"});
+						} 
+					}
+				
 				}
 			}
 		}
-		 
-	});
+		else
+		{	
+			isTimeSet = false;
+			cancelTimeSet = false;
 
-	for(var i = 0; i < 36; i++)
-	{
-		if(i < idStart || i > (idStart + 30))
-		{
-			$(".datumTabel").css({"background-color": "var(--light-theme-color)"});
-			$("#"+i).css({"filter": "blur(3px)"});
+			$("#bookedTime").html("/ 00:00-00:00");
 		}
-	}
 
+	});
 
 
 
 	$("#bookingBTN").click(function() {
 
+		// Gets the values the user wants to reserv. 
 		var bookedTime = $("#tidSelect option:checked").text();
 		var bookedDate = $("#bookedDate").html();
-		alert("." + bookedDate + ".");
-		alert("." + bookedTime + ".");
 
-		if(bookedDate != " 0000-00-00" && bookedTime != "Välj en tid")
-		{			
+		// Checks if a new date and time has bin slected and only
+		// if so then it calls the php update file
+		if(isDateSet == true && isTimeSet == true)
+		{	
 			var reservation = "u" + userLoggedIn + "/t" + bookedTime + "/d" + bookedDate;
+			
 			$.post("reservingTime.php", 
 				{ reservation: reservation }, 
 				function(data, status) {
@@ -249,14 +303,19 @@ $(document).ready(function() {
 				})
 
 			reservationArray();
+
+			//	Sets the varaibles to false so you  
+			//  can't spam the reserving button.
+			isDateSet = false;
+			isTimeSet = false;
 		}
 
-		//Error messages
-		else if(bookedDate == " 0000-00-00" && bookedTime != "Välj en tid")
+		//Error messages...
+		else if(isDateSet == false && isTimeSet == true)
 		{
 			$("#messageBox").html("Du har inte valt datumet som tiden ska bokas!")
 		}
-		else if(bookedDate != " 0000-00-00" && bookedTime == "Välj en tid")
+		else if(isDateSet == true && isTimeSet == false)
 		{
 			$("#messageBox").html("Du har inte valt tiden som ska bokas!");	
 		}
@@ -270,22 +329,31 @@ $(document).ready(function() {
 
 
 	$("#cancelBTN").click(function() {
+
+		// Gets the values the user wants to reserv. 
 		var bookedTime = $("#tidSelect option:checked").text();
 		var bookedDate = $("#bookedDate").html();
 
-		if(bookedDate != " 0000-00-00" && bookedTime != "Välj en tid")
+		// Checks if there is a reservation to cancel/delet and only if
+		// there is one it calls the php cancel/delete file. 
+		if(cancelDateSet == true && cancelTimeSet == true)
 		{	
 			$.get("deleteReservation.php", function(data) {
 				$("#messageBox").html(data);
 			});	
 
-			reservationArray();		
+			reservationArray();
+
+			// Sets the variables to false so 
+			// you can't spam the cancel button.
+			cancelDateSet = false;
+			cancelTimeSet = false;		
 		}
+		//Error message...
 		else
 		{
 			$("#messageBox").html("Du har inte bokat en tid som kan avbokas!");
 		}
 		
 	});
-
 });

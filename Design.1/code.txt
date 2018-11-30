@@ -142,6 +142,64 @@ JQUERY OR JAVASCRIPT CODE
 	});
 
 
+
+
+
+
+
+
+
+			/*
+			// Seperates the string so you can use the booked
+			// time and date seperatly.
+			var time = reservations[i].substring((timePosition + 2), (timePosition + 13));
+			var date = reservations[i].substring((datePosition + 2), (datePosition + 12)); 
+
+			alert("This is the time " + time);
+			alert("This is the date " + date);
+ 
+			for(var j = 0; j < dateArrayLength; j++)
+			{
+			//	alert($("#tidSelect option:checked").text());
+			//	alert(time);
+				alert(date);
+				alert(dateArray[i]);
+				if (dateArray[i] == date && $("#tidSelect option:checked").text() == time)
+				{
+					alert("Im in!");
+					$("#"+i).css({"text-decoration": "line-through", "pointer-events": "none"});
+				} 
+			}*/
+
+
+
+
+
+
+			var scriptID = document.getElementById("reservationScript");
+			alert(scriptID.childNodes[0]);
+			scriptID.removeChild(scriptID.childNodes[0]);
+
+
+
+
+			var checkTime = $("#bookedTime").html().substring(2, 13);
+
+			if(time == checkTime)
+			{	
+				isTimeSet = false;
+				cancelTimeSet = false;
+
+				$("#bookedTime").html("/ 00:00-00:00");
+				$("#tidSelect").prop("selectedIndex",0);
+
+				$("#messageBox").html("Tiden " + checkTime + " är redan bokad den " + dateArray[i] + ".");
+			}
 ===========================================================================
 PHP CODE
 ===========================================================================
+
+
+
+
+onclick=\"selectUser(".$row['apartmentnr']. "," .$row['fullname']. "," .$row['picture'].")\"

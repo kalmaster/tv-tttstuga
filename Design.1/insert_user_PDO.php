@@ -2,8 +2,8 @@
 
 include_once "connPDO.php";
 
-$apartmentnr = $_POST["lagenhetsnr"];
 $username = $_POST["username"];
+$apartmentnr = $_POST["apartmentnr"];
 $password = $_POST["password"];
 
 $passwordDB = password_hash($password,PASSWORD_DEFAULT);
@@ -11,7 +11,7 @@ $passwordDB = password_hash($password,PASSWORD_DEFAULT);
 
 // Attempt insert query execution
 try{
-    $sql = "INSERT INTO users (apartmentnr, fullname, password, picture) VALUES (:apartmentnr, :username, :password, 'Nice picture')";
+    $sql = "INSERT INTO users (apartmentnr, fullname, password, picture) VALUES (:apartmentnr, :username, :password, 'Nej')";
     $stmt = $pdo->prepare($sql);
     
     $stmt->bindParam(':apartmentnr', $apartmentnr);

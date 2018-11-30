@@ -8,6 +8,8 @@
 	<body>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
+			<script type="text/javascript" src="adminSideScript.js"></script>
+
 		<div class="container">
 				<div id="leftBox">
 						<div class="boxHeader">
@@ -17,26 +19,29 @@
 						<div class="bodyBox">
 							
 
-							<form action="insert_user_PDO.php" method="POST">
-										
+							<!--							<form action="insert_user_PDO.php" method="POST">
+								-->		
 								<label id="Ny ägare">Namn:</label> <br> 
 
-								<input type="text" name="username" onfocusout="validerar()" id="nyägare"> <br>
+								<input type="text" name="username" id="username"> <br>
 
 								<label id="usernameLabel">Lägenhetsnummer:</label><br> 
-								<input type="text" name="lagenhetsnr" " onfocusout="validerar()" id="nylägenhet"><br>
+								<input type="text" name="lagenhetsnr" id="apartmentnr">
+								<span id="regMessageBox"></span><br>
 								
 								Lösenord:<br> 
 								  
-								<input type="password" name="password" maxlength="30"><br><br>
+								<input type="password" name="password" maxlength="30" id="password"><br><br> 
 								
-								<input type="file" id ="bild" name="picture">
+								<input type="file" id="bild" name="picture">
 								<br><br>
 
-								<button type="submit" id="Regestrera">Registrera</button>
+								<div id="messageBox"></div> 
+								<button type="submit" id="registerUser">Registrera</button>
 
-							</form>
-							<br>
+								<button id="deleteUser">Ta bort</button>
+
+					<!--		</form> -->
 							<a href="index.php" class="button" onclick="destroy()">Logga ut</a>
 
 						</div>
@@ -47,6 +52,37 @@
 					<div class="boxHeader">
 						<p>Registrerade användare</p>	
 					</div>
+
+					<table id="userTable">
+						<tr class="selectedUser">
+							<th>Lägenhetsnr</th>
+							<th>Användarnamn</th>
+							<th>Lösenord</th>
+							<th>Bild</th>
+						</tr>
+					</table>
+
+<!--
+					<table>
+						<tr class="userSelected">
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+					</table>
+	-->				
 					<div id="test"></div>
 				</div>
 			</div>
@@ -56,7 +92,6 @@
 		<!--<input type="text" name="Nytt lösenord " onfocusout="validerar()" id="nyttlösenord"><br>
 		<label id="usernameLabel">Nytt Lösenord:</label><br> 
 		-->
-		<script type="text/javascript" src="adminSideScript.js"></script>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 		<link rel="stylesheet" type="text/css" href="adminInStylesheet.css"/>
 	<!--	<script type="text/javascript" src="javascript.js"></script> -->

@@ -5,6 +5,7 @@ include_once "connPDO.php";
 
 
 $reservation = "u".$_SESSION["userOrNr"]. "/t00:00-00:00/d0000-00-00";
+$_SESSION["sendFromDelRes"] = "true";
 
 try{
     $sql = "UPDATE reservations1 SET reservation='".$reservation."' WHERE apartmentnr='".$_SESSION["userOrNr"]."'";    
