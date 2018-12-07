@@ -5,7 +5,7 @@ include "connPDO.php";
 
 // Attempt select query execution
 try{
-    $sql = "SELECT * FROM reservations1";   
+    $sql = "SELECT * FROM reservations";   
     $result = $pdo->query($sql);
     
     $amountOFRows = $result->rowCount();

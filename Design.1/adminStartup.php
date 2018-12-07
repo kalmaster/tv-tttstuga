@@ -8,20 +8,22 @@ try{
     $sql = "SELECT * FROM users";   
     $result = $pdo->query($sql);
     
-    if($result->rowCount() > 0){
-            echo "<tr class=\"selectedUser\">";
-                echo "<th>Lägenhetsnr</th>";
-                echo "<th>Användarnamn</th>";
-                echo "<th>Lösenord</th>";
-                echo "<th>Bild</th>";          
-            echo "</tr>";            
-        while($row = $result->fetch()){
-            echo "<tr class=\"selectedUser\">";
-                echo "<td>" . $row['apartmentnr'] . "</td>";
-                echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>JA</td>";
-                echo "<td>" . $row['picture'] . "</td>";
-            echo "</tr>";
+    if($result->rowCount() > 0){ ?>
+            <tr class="selectedUser">
+                <th>Lägenhetsnr</th>
+                <th>Användarnamn</th>
+                <th>Lösenord</th>
+                <th>Bild</th>          
+            </tr>
+
+        <?php while($row = $result->fetch()){ ?>
+            <tr class="selectedUser">";
+                <td><?php echo $row["apartmentnr"]; ?></td>
+                <td><?php echo $row["fullname"]; ?></td>
+                <td>JA</td>
+                <td><img src="<?php echo $row["picture"]; ?>"></td>
+            </tr>";
+        <?php 
         }
         // Free result set
         unset($result);

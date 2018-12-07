@@ -29,10 +29,17 @@ time, mark, audio, video {
 
     /*Special theme colors*/
     --gray-theme-color: #8fb7b1;
+    --gray-red-theme-color: #f2a6a6;
+    --green-theme-color: #85e085;
 }
 
 body{
     background-image: url("images/cleantexture_user.jpg");
+}
+
+img{
+    height: 50px;
+    width: auto;
 }
 
 .formular{

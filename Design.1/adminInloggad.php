@@ -23,17 +23,17 @@
 								-->		
 								<label id="Ny ägare">Namn:</label> <br> 
 
-								<input type="text" name="username" id="username"> <br>
+								<input type="text" name="username" id="username"><span id="usernameSpan"></span><br>
 
 								<label id="usernameLabel">Lägenhetsnummer:</label><br> 
 								<input type="text" name="lagenhetsnr" id="apartmentnr">
-								<span id="regMessageBox"></span><br>
+								<span id="apartmentnrSpan"></span><br>
 								
 								Lösenord:<br> 
 								  
-								<input type="password" name="password" maxlength="30" id="password"><br><br> 
+								<input type="password" name="password" maxlength="30" id="password"><span id="passwordSpan"></span><br><br> 
 								
-								<input type="file" id="bild" name="picture">
+								<input type="file" id="image" name="picture">
 								<br><br>
 
 								<div id="messageBox"></div> 
@@ -54,12 +54,7 @@
 					</div>
 
 					<table id="userTable">
-						<tr class="selectedUser">
-							<th>Lägenhetsnr</th>
-							<th>Användarnamn</th>
-							<th>Lösenord</th>
-							<th>Bild</th>
-						</tr>
+
 					</table>
 
 <!--
@@ -83,7 +78,9 @@
 						</tr>
 					</table>
 	-->				
-					<div id="test"></div>
+					<div id="test">
+						<img id="testImg">
+					</div>
 				</div>
 			</div>
 			

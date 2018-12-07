@@ -17,7 +17,7 @@ try{
 }
 
 try{
-    $sql = "DELETE FROM reservations1 WHERE apartmentnr='$apartmentnr'";  
+    $sql = "DELETE FROM reservations WHERE apartmentnr='$apartmentnr'";  
     $pdo->exec($sql);
 
     $reservationDeleted = true;

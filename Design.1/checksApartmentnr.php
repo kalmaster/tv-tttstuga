@@ -3,6 +3,7 @@
 include_once "connPDO.php";
 
 $apartmentnr = $_POST["apartmentnr"];
+$usedOrNot = false;
 
 // Attempt select query execution
 try{
@@ -19,13 +20,18 @@ try{
         	if($rowNr == $apartmentnr)
         	{
         		echo "Lägenhetsnummret " .$apartmentnr. " är redan upptaget.";
+                $usedOrNot = true;
         	}
+        }
+        if($usedOrNot == false)
+        {
+            echo "";
         }
 
         // Free result set
         unset($result);
     } else{
-        echo "No records matching your query were found.";
+        echo "";
     }
 
 } catch(PDOException $e){
