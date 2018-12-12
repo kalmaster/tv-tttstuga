@@ -56,7 +56,7 @@ else{
                 
                 if (password_verify($_SESSION["password"], $hash)) {
                     echo "Password is valid!";
-                    include_once 'adminInloggad.php';
+                    include_once "adminLoggedIn.php";
                 } else {
                     include_once "index.php";
                     echo "Invalid password.";

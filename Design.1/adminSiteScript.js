@@ -5,25 +5,9 @@ $(document).ready(function(){
 	var passwordSet = false;
 	var imageSet = false;
 
-
-	function selectUser(apartmentnr, username, picture)
-	{
-		$("#apartmentnr").val(apartmentnr);
-		$("#username").val(username);
-		$("password").val("true");
-		$("#picture").val(picture);
-	}
-
-	$(".selectedUser").click(function() {
-		alert("The PHP one works!");
-	});
-
 	$.get("adminStartup.php", function(data, status) {
 		$("#userTable").html(data);	
 	});
-
-
-
 
 
 	$("#apartmentnr").keyup(function() {
@@ -71,7 +55,6 @@ $(document).ready(function(){
 		{
 			$("#" + whichField).css({"background-color": "var(--green-theme-color)"});
 			$("#" + whichField + "Span").html("");
-
 		}
 		else
 		{
@@ -85,7 +68,6 @@ $(document).ready(function(){
 			usernameSet = true;
 			$("#username").css({"background-color": "var(--green-theme-color)"});
 			$("#usernameSpan").html("");
-
 		}
 		else
 		{
@@ -100,7 +82,6 @@ $(document).ready(function(){
 			usernameSet = true;
 			$("#username").css({"background-color": "var(--green-theme-color)"});
 			$("#usernameSpan").html("");
-
 		}
 		else
 		{
@@ -115,7 +96,6 @@ $(document).ready(function(){
 			passwordSet = true;
 			$("#password").css({"background-color": "var(--green-theme-color)"});
 			$("#passwordSpan").html("");
-
 		}
 		else
 		{
@@ -130,7 +110,6 @@ $(document).ready(function(){
 			passwordSet = true;
 			$("#password").css({"background-color": "var(--green-theme-color)"});
 			$("#passwordSpan").html("");
-
 		}
 		else
 		{
@@ -170,7 +149,7 @@ $(document).ready(function(){
 
 			alert(form_data);                             
 			$.ajax({
-			    url: "upload.php", // point to server-side PHP script 
+			    url: "insertUser.php", // point to server-side PHP script 
 			    dataType: "text",  // what to expect back from the PHP script, if anything
 			    cache: false,
 			    contentType: false,
@@ -199,23 +178,13 @@ $(document).ready(function(){
 			        	passwordSet = false;
 			        }
 			        else 
-			        {
+			        {	
+			        	$.get("adminStartup.php", function(data, status) {
+			        		$("#userTable").html(data);	
+			        	});
 			        	$("#messageBox").html("Det uppstod ett fel när användaren skulle registreras, försök igen.");	
 			        } 
 			    }
-			/*
-			var username = $("#username").val();
-			var apartmentnr = $("#apartmentnr").val();
-			var password = $("#password").val();
-
-			oldRowCount = $("#userTable tr").length;
-
-			$.post("insert_user_PDO.php", 
-			{ 	username: username,
-				apartmentnr: apartmentnr,
-				password: password }, 
-			function(data, status) {
-				$("#userTable").html(data); */
 			});
 		}	
 		else if(usernameSet == false && apartmentnrSet == true && passwordSet == true && imageSet == true)

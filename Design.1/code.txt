@@ -195,6 +195,41 @@ JQUERY OR JAVASCRIPT CODE
 
 				$("#messageBox").html("Tiden " + checkTime + " är redan bokad den " + dateArray[i] + ".");
 			}
+
+
+
+			/*
+			var username = $("#username").val();
+			var apartmentnr = $("#apartmentnr").val();
+			var password = $("#password").val();
+
+			oldRowCount = $("#userTable tr").length;
+
+			$.post("insert_user_PDO.php", 
+			{ 	username: username,
+				apartmentnr: apartmentnr,
+				password: password }, 
+			function(data, status) {
+				$("#userTable").html(data); */
+
+
+
+				/*
+	function selectUser(apartmentnr, username, picture)
+	{
+		$("#apartmentnr").val(apartmentnr);
+		$("#username").val(username);
+		$("password").val("true");
+		$("#picture").val(picture);
+	}
+
+	$(".selectedUser").click(function() {
+		alert("The PHP one works!");
+	}); */
+
+
+
+
 ===========================================================================
 PHP CODE
 ===========================================================================

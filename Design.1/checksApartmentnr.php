@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once "connPDO.php";
+include_once "conn.php";
 
 $apartmentnr = $_POST["apartmentnr"];
 $usedOrNot = false;

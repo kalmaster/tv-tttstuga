@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-include_once "connPDO.php";
+include_once "conn.php";
 
 if ( 0 < $_FILES["file"]["error"] ) {
     echo "Error: " . $_FILES["file"]["error"] . "<br>";
-    echo "Error comes from the file error."
+    echo "Error comes from the file error.";
 }
 else {
-    echo "Error comes from the username error."
+    echo "Error comes from the username error.";
     move_uploaded_file($_FILES["file"]["tmp_name"], "uploaded_images/" . $_FILES["file"]["name"]);
     $imagePath = "uploaded_images/" .$_FILES["file"]["name"];
 

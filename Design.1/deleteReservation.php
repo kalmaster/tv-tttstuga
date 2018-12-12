@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once "connPDO.php";
+include_once "conn.php";
 
 
 $reservation = "u".$_SESSION["userOrNr"]. "/t00:00-00:00/d0000-00-00";
