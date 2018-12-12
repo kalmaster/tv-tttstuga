@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 try{
     $pdo = new PDO("mysql:host=localhost;dbname=tvattstugan", "root", "");
     // Set the PDO error mode to exception

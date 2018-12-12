@@ -1,7 +1,7 @@
 <?php 
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-include_once "connPDO.php";
+session_start();
+
+include_once "conn.php";
 
 $reservation = $_POST["reservation"];
 

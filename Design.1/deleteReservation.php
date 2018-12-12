@@ -1,6 +1,6 @@
 <?php
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
+session_start();
+
 include_once "connPDO.php";
 
 

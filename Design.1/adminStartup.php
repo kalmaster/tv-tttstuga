@@ -1,7 +1,7 @@
  <?php
+session_start();
 
-//Ansluter till databasen
-include_once "connPDO.php";
+include_once "conn.php";
 
 // Attempt select query execution
 try{

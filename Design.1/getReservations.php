@@ -1,6 +1,5 @@
 <?php 
-
-include "connPDO.php";
+include "conn.php";
 
 
 // Attempt select query execution

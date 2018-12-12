@@ -62,24 +62,24 @@ $(document).ready(function() {
     weekday[5] = "Friday";
     weekday[6] = "Saturday";
 
-    var month = new Array();
-    month[0] = "January";
-    month[1] = "February";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "August";
-    month[8] = "September";
-    month[9] = "October";
-    month[10] = "November";
-    month[11] = "December";  
+    var monthArray = new Array();
+    monthArray[0] = "January";
+    monthArray[1] = "February";
+    monthArray[2] = "March";
+    monthArray[3] = "April";
+    monthArray[4] = "May";
+    monthArray[5] = "June";
+    monthArray[6] = "July";
+    monthArray[7] = "August";
+    monthArray[8] = "September";
+    monthArray[9] = "October";
+    monthArray[10] = "November";
+    monthArray[11] = "December";  
 
     var d = new Date();
-    var n = month[d.getMonth()];
+    var n = monthArray[d.getMonth()];
 
-    //WeekDayControl week day gets set to todays weekday.
+    //WeekDayControl weekday gets set to todays weekday.
     var weekDayControl = weekday[d.getDay()];
     var idStart = 0;
 
@@ -288,7 +288,7 @@ $(document).ready(function() {
 
 		// Gets the values the user wants to reserv. 
 		var bookedTime = $("#tidSelect option:checked").text();
-		var bookedDate = $("#bookedDate").html();
+		var bookedDate = $("#bookedDate").html();	
 
 		// Checks if a new date and time has bin slected and only
 		// if so then it calls the php update file

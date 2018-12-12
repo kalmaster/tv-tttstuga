@@ -6,13 +6,13 @@
 		<title>Boka tid</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-		<link rel="stylesheet" type="text/css" href="userInStylesheet.css" />
+		<link rel="stylesheet" type="text/css" href="userStylesheet.css" />
 	</head>
 		
 		
 	<body>
 		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>	
-		<script type="text/javascript" src="userSideScript.js"></script>
+		<script type="text/javascript" src="userSiteScript.js"></script>
 
 		<div class="container">
 
