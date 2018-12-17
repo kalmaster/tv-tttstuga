@@ -3,9 +3,15 @@
 	<head>
 		<title>Administration</title>
 		<meta charset="utf-8"/>
+
+		<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+		<link rel="stylesheet" type="text/css" href="adminStylesheet.css"/>
+
 	</head>
 
 	<body>
+		<div id="reservationsHolder"></div>
+			
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 			<script type="text/javascript" src="adminSiteScript.js"></script>
@@ -17,16 +23,12 @@
 						</div>
 
 						<div class="bodyBox">
-							
-
-							<!--							<form action="insert_user_PDO.php" method="POST">
-								-->		
 								<label id="Ny ägare">Namn:</label> <br> 
 
 								<input type="text" name="username" id="username"><span id="usernameSpan"></span><br>
 
 								<label id="usernameLabel">Lägenhetsnummer:</label><br> 
-								<input type="text" name="lagenhetsnr" id="apartmentnr">
+								<input type="text" name="lagenhetsnr" id="apartmentnr" maxlength="3">
 								<span id="apartmentnrSpan"></span><br>
 								
 								Lösenord:<br> 
@@ -39,9 +41,6 @@
 								<div id="messageBox"></div> 
 								<button type="submit" id="registerUser">Registrera</button>
 
-								<button id="deleteUser">Ta bort</button>
-
-					<!--		</form> -->
 							<a href="index.php" class="button" onclick="destroy()">Logga ut</a>
 
 						</div>
@@ -52,46 +51,25 @@
 					<div class="boxHeader">
 						<p>Registrerade användare</p>	
 					</div>
-
+					<div id=holdingUsers>
 					<table id="userTable">
 
 					</table>
-
-<!--
-					<table>
-						<tr class="userSelected">
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-						</tr>
-
-						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-						</tr>
-
-						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-						</tr>
-					</table>
-	-->				
-					<div id="test">
-						<img id="testImg">
 					</div>
+
+
+
+					<div id="deleteContainer">
+						
+					<input type="text" maxlength="3" placeholder="Lägenhetsnummer" id="apartmentnrDelete"/>
+
+					<button id="deleteUser">Ta bort</button><span id="deleteMessage"></span>
+
+					</div>
+
+
 				</div>
 			</div>
-			
-
-
-		<!--<input type="text" name="Nytt lösenord " onfocusout="validerar()" id="nyttlösenord"><br>
-		<label id="usernameLabel">Nytt Lösenord:</label><br> 
-		-->
-		<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
-		<link rel="stylesheet" type="text/css" href="adminStylesheet.css"/>
-	<!--	<script type="text/javascript" src="javascript.js"></script> -->
 	</body>
 	
 </html>

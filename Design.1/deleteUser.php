@@ -7,6 +7,16 @@ $apartmentnr = $_POST["apartmentnr"];
 
 $userDeleted = false;
 $reservationDeleted = false;
+
+
+
+/*
+$sql = "SELECT picture FROM users  apartmentnr";
+$result = $pdo->query($sql);
+
+$filePath = $result; */
+
+
 // Attempt update query execution
 try{
     $sql = "DELETE FROM users WHERE apartmentnr='$apartmentnr'";  

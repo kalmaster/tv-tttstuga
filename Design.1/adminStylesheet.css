@@ -17,6 +17,7 @@
     min-height: 50%;
     max-height: 50%;
     margin-left: 0.7291666667%;
+    position: relative;
     background-color:  var(--light-theme-color);
 }
 
@@ -32,6 +33,7 @@ table{
     text-align: center;
     border: none;
     border-spacing: 0px;
+    overflow-y: scroll;
 }
 
 tr:hover {
@@ -39,3 +41,45 @@ tr:hover {
     cursor: pointer;
 }
 
+#holdingUsers {
+    height: 250px;
+    overflow-y: auto;
+}
+
+#deleteMessage {
+    max-width: 100px;
+    word-wrap: break-word;
+}
+
+#textMSG {
+    width: 100px;
+    word-wrap: break-word;  
+}
+
+#deleteContainer {
+    width: 100%;
+    height: 15%;
+    padding: 2% 1% 2% 1%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#deleteMessage {
+    display: block;
+    max-width: 180px;
+    min-width: 180px;
+    word-wrap: break-word;
+    float: left;
+}
+
+#deleteUser { 
+    float: left; 
+    margin: 0px 5px 0px 5px;
+}
+
+#apartmentnrDelete{
+    float: left;
+    font-size: 15px;
+    margin: 1% 1% 1% 1%;
+}

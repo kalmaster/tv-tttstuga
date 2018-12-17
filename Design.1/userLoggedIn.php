@@ -21,7 +21,6 @@
 						<p>Välkommen <label name="username">Kilian</label>!</p>
 					</div>
 
-				<!--	<form action="reservingTime.php" method="POST"> -->
 						<input id="lagenhetsnr" name="lagenhetsnr" type="HIDDEN"/>
 						<input id="bokadDatumVar" name="bookedDateVar" type="HIDDEN"/>
 						<input id="bokadTidVar" name="bookedTimeVar" type="HIDDEN"/>
@@ -55,8 +54,6 @@
 						<button type="submit" id="cancelBTN">Avboka</button>
 
 						<a class="button" href="index.php">Logga ut</a>
-				<!--	</form>  -->
-				<!--	<button id="resTest">Click me</button> -->	
 				</div>
 
 

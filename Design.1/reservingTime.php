@@ -13,7 +13,6 @@ try{
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
 
-include "getReservations.php";
 // Close connection
 unset($pdo);
 

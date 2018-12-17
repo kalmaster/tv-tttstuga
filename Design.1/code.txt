@@ -230,6 +230,21 @@ JQUERY OR JAVASCRIPT CODE
 
 
 
+	function checkIfSet(whichField)
+	{
+		if($("#" + whichField).val() != "")
+		{
+			$("#" + whichField).css({"background-color": "var(--green-theme-color)"});
+			$("#" + whichField + "Span").html("");
+		}
+		else
+		{
+			$("#" + whichField).css({"background-color": "var(--gray-red-theme-color)"});
+		}
+	}
+
+
+
 ===========================================================================
 PHP CODE
 ===========================================================================
