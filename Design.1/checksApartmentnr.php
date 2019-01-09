@@ -8,16 +8,18 @@ $usedOrNot = false;
 
 // Attempt select query execution
 try{
+    //Gets all the existing apartmentnr.
     $sql = "SELECT apartmentnr FROM users";   
     $result = $pdo->query($sql);
 
-    // Creating the javascript array.
+
     if($result->rowCount() > 0){
 
-        //Inserts valus from the database in to the array.
+        //Cheks all the apartmentnr.
         while($row = $result->fetch()){
         	$rowNr = $row["apartmentnr"];
 
+            //Cheks if the apartmentnr that the admin enterd already exists.
         	if($rowNr == $apartmentnr)
         	{
         		echo "Lägenhetsnummret " .$apartmentnr. " är redan upptaget.";

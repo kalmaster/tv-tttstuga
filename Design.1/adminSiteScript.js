@@ -306,35 +306,13 @@ $(document).ready(function(){
 			        }
 			     	//Error message...
 			        else 
-			        {	/*
-			        	$.get("adminStartup.php", function(data, status) {
-			        		$("#userTable").html(data); 
-			        	}); */ 
+			        {	
 			        	$("#messageBox").html("Det uppstod ett fel när användaren skulle registreras, försök igen.");	
 			        	$("#messageBox").css({"color": "red"});
 			        } 
 			    }
 			});
 		}	
-/*
-		//Error messages for all the fields and the fileselect. 
-		else
-		{
-			$("#usernameSpan").html(" Detta fält måste vara ifyltt!");
-			$("#apartmentnrSpan").html(" Detta fält måste vara ifyltt!");
-			$("#passwordSpan").html(" Detta fält måste vara ifyltt!");
-			$("#messageBox").html("Du måste ha valt en bild som ska laddas upp!");
-
-			$("#usernameSpan").css({"color": "red"});
-			$("#apartmentnrSpan").css({"color": "red"});
-			$("#passwordSpan").css({"color": "red"});
-			$("#messageBox").css({"color": "red"});
-
-
-			$("#username").css({"background-color": "var(--gray-red-theme-color)"});
-			$("#apartmentnr").css({"background-color": "var(--gray-red-theme-color)"});
-			$("#password").css({"background-color": "var(--gray-red-theme-color)"});
-		} */
 	});
 
 

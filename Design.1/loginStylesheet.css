@@ -1,3 +1,9 @@
 @charset "utf-8";
 
+.mainBox{
+    margin: 0 auto;
+    width: 40%;
+    height: 40%;
+    background-color: var(--light-theme-color);
+}
 

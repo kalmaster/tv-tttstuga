@@ -37,57 +37,9 @@ body{
     background-image: url("images/cleantexture_user.jpg");
 }
 
-img{
-    height: 50px;
-    width: auto;
-}
-
-.formular{
-	margin: auto;
-    width: 60%;
-    padding: 10px;
-}
-
-.container{
-    width: 100%;
-    height: 100%;
-    font-family: cursive;
-}	
-
-
-
 input[type=text], [type=password]{
 	display: inline-block;
 	box-sizing: border-box;
-}
-
-#bild:focus{
-
-    background-color: var(--medium-theme-color);
-    color: black;
-    font-family: cursive;
-    font-size: 15px;
-    padding: 1% 7% 1% 7%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border: none;
-}
-
-.button:link, .button:visited {
-    background-color: var(--medium-theme-color);
-    color: black;
-    font-family: cursive;
-    font-size: 15px;
-    padding: 1% 6% 1% 6%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-
-.button:hover, .button:active {
-    text-decoration: underline;
 }
 
 button, button:visited {
@@ -106,13 +58,32 @@ button:hover {
     text-decoration: underline;
 } 
 
-
 select {
     font-size: 20px;
     background-color: var(--medium-theme-color);
     margin-bottom: 3%;
 }
 
+.container{
+    width: 100%;
+    height: 100%;
+    font-family: cursive;
+}
+
+.button:link, .button:visited {
+    background-color: var(--medium-theme-color);
+    color: black;
+    font-family: cursive;
+    font-size: 15px;
+    padding: 1% 6% 1% 6%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button:hover, .button:active {
+    text-decoration: underline;
+}
 
 .boxHeader{
     padding-left: 2%;
@@ -120,24 +91,21 @@ select {
     font-size: 220%;
 }
 
-.mainBox{
-    margin: 0 auto;
-    width: 40%;
-    height: 40%;
-    background-color: var(--light-theme-color);
-}
-
 .bodyBox{
     padding: 2% 2% 2% 2%;
     overflow: auto;
-
-.testContainer{
-    width: 90%;
-    height: 100%;
-    margin: 0 auto;
 }
 
-#messageBox{
-    height: 400px;
-    font-size: 80%;
+.messageBox{
+    height: auto;
+    font-size: 100%;
+}
+
+.bottomContainer {
+    width: 100%;
+    height: 15%;
+    padding: 2% 1% 2% 1%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }

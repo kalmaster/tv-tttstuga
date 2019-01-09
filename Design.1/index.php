@@ -15,13 +15,13 @@
 			<script type="text/javascript" src="indexSiteScript.js"></script>
 
 		<div class="container">
+
 			<div class="mainBox">
 				<div class="boxHeader">
 					<p id="loginH3">Logga in som Användare</p>
 				</div>
 
 				<div class="bodyBox">
-					<div class="formBox">
 						<form action="login.php" method="POST" name="login" id="loginForm">
 							<input type="HIDDEN" name="loginAs" id="loginAs" value="user">
 
@@ -34,14 +34,13 @@
 								<label id="usernameLabel">Lägenhetsnummer:</label><br>
 								<input type="text" name="userOrNr" id="userOrNr"/><br>
 							
-								Lösenord: <br>
+								Lösenord:<br>
 								<input type="password" name="password" id="password"/><br>			
 							</div><br>
 
 							<button type="submit" name="submit" id="submitButton">Logga In</button>
 							<div id="errorMSG"></div>
 						</form> 
-					</div>
 				</div>
 			</div>
 		</div>

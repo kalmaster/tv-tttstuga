@@ -61,6 +61,125 @@ CSS CODE
 JQUERY OR JAVASCRIPT CODE
 ===========================================================================
 
+
+
+/*
+	var request;
+	$("#loginForm").submit(function(event){
+		event.preventDefault();
+
+		var nameBox = $("#userOrNr").val();
+		var passBox = $("#password").val();
+
+		if(nameBox != "" && passBox != "")
+		{
+
+			// Prevent default posting of form - put here to work in case of errors
+			event.preventDefault();
+
+			// Abort any pending request
+			if (request) {
+			    request.abort();
+			}
+			// setup some local variables
+			var $form = $(this);
+
+			// Let's select and cache all the fields
+			var $inputs = $form.find("input, select, button, textarea");
+
+			// Serialize the data in the form
+			var serializedData = $form.serialize();
+
+			// Let's disable the inputs for the duration of the Ajax request.
+			// Note: we disable elements AFTER the form data has been serialized.
+			// Disabled form elements will not be serialized.
+			$inputs.prop("disabled", true);
+
+
+			request = $.ajax({
+			        url: "/login2.php",
+			        type: "post",
+			        data: serializedData
+			    });
+
+			// Callback handler that will be called on success
+			request.done(function (response, textStatus, jqXHR){
+			    // Log a message to the console
+			    console.log("Hooray, it worked!");
+			});
+
+			// Callback handler that will be called on failure
+			request.fail(function (jqXHR, textStatus, errorThrown){
+			    // Log the error to the console
+			    console.error(
+			        "The following error occurred: "+
+			        textStatus, errorThrown
+			    );
+			});
+
+			// Callback handler that will be called regardless
+			// if the request failed or succeeded
+			request.always(function () {
+			    // Reenable the inputs
+			    $inputs.prop("disabled", false);
+			});
+		}
+		else
+		{
+			//Här ska felmedelande i placeholder vara.
+		}
+	}); */
+
+
+
+
+
+
+
+
+	/*
+	//Funktion som ändrar på vad som står över användarnamn fältet.
+function changeUser() {
+	
+    var string = document.getElementById("username").innerHTML; 
+    var resetString = string.replace("Lägenhetsnummer:", "Användarnamn:");
+    document.getElementById("username").innerHTML = resetString;
+}
+
+
+	//Funktion som ändrar på vad som står över användarnamn fältet.
+function changeUser2() {
+	
+    var string = document.getElementById("username").innerHTML; 
+    var resetString = string.replace("Användarnamn:", "Lägenhetsnummer:");
+    document.getElementById("username").innerHTML = resetString;
+}
+
+
+function validerar() {
+	
+	var usernameString = document.getElementById("usernameBox").innerHTML;
+	var passwordString = document.getElementById("passwordBox").innerHTML;
+	
+	if(usernameString == "" && passwordString == "")
+	{
+		document.getElementById("submitButton").disabled = true;
+	}
+	
+	else
+	{
+		alert("Here I am!");
+		document.getElementById("submitButton").disabled = false;
+	}
+} */
+
+
+
+$.get("adminStartup.php", function(data, status) {
+	$("#userTable").html(data); 
+}); */ 
+
+
 /* Comes from the userSideScript.js
 
 		if($("#"+id).html() != "Ej bokbar")
@@ -245,6 +364,27 @@ JQUERY OR JAVASCRIPT CODE
 
 
 
+	/*
+			//Error messages for all the fields and the fileselect. 
+			else
+			{
+				$("#usernameSpan").html(" Detta fält måste vara ifyltt!");
+				$("#apartmentnrSpan").html(" Detta fält måste vara ifyltt!");
+				$("#passwordSpan").html(" Detta fält måste vara ifyltt!");
+				$("#messageBox").html("Du måste ha valt en bild som ska laddas upp!");
+
+				$("#usernameSpan").css({"color": "red"});
+				$("#apartmentnrSpan").css({"color": "red"});
+				$("#passwordSpan").css({"color": "red"});
+				$("#messageBox").css({"color": "red"});
+
+
+				$("#username").css({"background-color": "var(--gray-red-theme-color)"});
+				$("#apartmentnr").css({"background-color": "var(--gray-red-theme-color)"});
+				$("#password").css({"background-color": "var(--gray-red-theme-color)"});
+			} */
+
+
 ===========================================================================
 PHP CODE
 ===========================================================================
@@ -359,3 +499,12 @@ try{
     die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
 */
+
+
+
+
+/*
+$sql = "SELECT picture FROM users  apartmentnr";
+$result = $pdo->query($sql);
+
+$filePath = $result; */
